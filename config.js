@@ -10,7 +10,7 @@ var config = {
 	website_name: 'RentFerence',
 	description: 'Make our life easier!',
 	site_static_host: '',
-	port: 1234,
+	port: 3000,
 
     auth_cookie_name: 'rentference_cookie',
 
