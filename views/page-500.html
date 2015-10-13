@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>  <html class="lt-ie7"> <![endif]-->
+<!--[if IE 7]>     <html class="lt-ie8"> <![endif]-->
+<!--[if IE 8]>     <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Con - Admin Dashboard with Material Design</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+
+  <link rel="icon" type="image/png" href="assets/_con/images/icon.png">
+  <!-- build:css assets/css/style.css -->
+  <!-- nanoScroller -->
+  <link rel="stylesheet" type="text/css" href="assets/nanoScroller/nanoscroller.css" />
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.min.css" />
+
+  <!-- WeatherIcons -->
+  <link rel="stylesheet" type="text/css" href="assets/weatherIcons/css/weather-icons.min.css" />
+
+  <!-- Material Design Icons -->
+  <link rel="stylesheet" type="text/css" href="assets/material-design-icons/css/material-design-icons.min.css" />
+
+  <!-- nvd3 -->
+  <link rel="stylesheet" type="text/css" href="assets/nvd3/nv.d3.min.css" />
+
+  <!-- Google Prettify -->
+  <link rel="stylesheet" type="text/css" href="assets/google-code-prettify/prettify.css" />
+
+  <!-- Main -->
+  <link rel="stylesheet" type="text/css" href="assets/_con/css/_con.min.css" />
+  <!-- endbuild -->
+  <!--[if lt IE 9]>
+    <script src="assets/html5shiv/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+
+  <!-- Top Navbar -->
+  <nav class="navbar-top white grey-text text-darken-3">
+    <div class="nav-wrapper">
+
+      <!-- Sidebar toggle -->
+      <a href="#" class="sidebar-toggle"><i class="mdi-navigation-menu"></i></a>
+      <!-- Sidebar toggle -->
+
+      <!-- Logo -->
+      <a href="#!" class="brand-logo">
+        <img src="assets/_con/images/logo.png" alt="Con">
+      </a>
+      <!-- /Logo -->
+
+      <!-- Menu -->
+      <ul>
+        <li><a href="#!" class="search-bar-toggle"><i class="mdi-action-search"></i></a>
+        </li>
+
+        <li class="user">
+          <a class="dropdown-button" href="#!" data-activates="user-dropdown">
+            <img src="assets/_con/images/user.jpg" alt="John Doe" class="circle">John Doe<i class="mdi-navigation-expand-more right"></i>
+          </a>
+
+          <ul id="user-dropdown" class="dropdown-content">
+            <li><a href="page-profile.html"><i class="fa fa-user"></i> Profile</a>
+            </li>
+            <li><a href="mail-inbox.html"><i class="fa fa-envelope"></i> Messages <span class="badge new">2</span></a>
+            </li>
+            <li><a href="#!"><i class="fa fa-cogs"></i> Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="page-sign-in.html"><i class="fa fa-sign-out"></i> Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- /Menu -->
+
+    </div>
+  </nav>
+  <!-- /Top Navbar -->
+
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="nano">
+      <div class="nano-content">
+
+        <ul>
+          <li class="label">Menu</li>
+          <li>
+            <a href="dashboard.html" class="waves-effect waves-blue"><i class="fa fa-dashboard"></i> Dashboard </a>
+          </li>
+
+          <li class="label">Elements</li>
+          <li>
+            <a class="toggle waves-effect waves-blue"><i class="fa fa-css3"></i> CSS<span class="badge mdi-navigation-expand-more"></span></a>
+            <div class="submenu">
+              <ul>
+                <li><a class="waves-effect waves-blue" href="css-alerts.html"><i class="mdi-alert-warning"></i> Alerts</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="css-badges.html"><i class="mdi-action-stars"></i> Badges</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="css-colors.html"><i class="mdi-image-palette"></i> Colors</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="css-grid.html"><i class="mdi-action-dashboard"></i> Grid</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="css-icons.html"><i class="mdi-communication-invert-colors-on"></i> Icons</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="css-shadow.html"><i class="mdi-maps-layers"></i> Shadow</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="css-typography.html"><i class="fa fa-font"></i> Typography</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="toggle waves-effect waves-blue"><i class="fa fa-cubes"></i> UI Elements<span class="badge mdi-navigation-expand-more"></span></a>
+            <div class="submenu">
+              <ul>
+                <li><a class="waves-effect waves-blue" href="ui-buttons.html"><i class="fa fa-square"></i> Buttons</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="ui-cards.html"><i class="mdi-av-web"></i> Cards</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="ui-collapsible.html"><i class="mdi-action-view-day"></i> Collapsible</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="ui-collections.html"><i class="fa fa-server"></i> Collections</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="ui-dropdown.html"><i class="mdi-navigation-arrow-drop-down-circle"></i> Dropdown</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="ui-modals.html"><i class="fa fa-external-link"></i> Modals</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="ui-progress-bars.html"><i class="fa fa-tasks"></i> Progress Bars</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="ui-tables.html"><i class="fa fa-table"></i> Tables</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="ui-tabs.html"><i class="mdi-action-tab-unselected"></i> Tabs</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="ui-toasts.html"><i class="mdi-action-announcement"></i> Toasts</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="ui-tooltips.html"><i class="fa fa-comment-o"></i> Tooltips</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="ui-waves.html"><i class="mdi-image-blur-on"></i> Waves</a>
+                </li>
+
+                <li><a class="waves-effect waves-blue" href="ui-search-bar.html"><i class="mdi-action-search"></i> Search Bar</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="toggle waves-effect waves-blue"><i class="fa fa-check-square-o"></i> Forms<span class="badge mdi-navigation-expand-more"></span></a>
+            <div class="submenu">
+              <ul>
+                <li><a class="waves-effect waves-blue" href="forms-base.html"><i class="fa fa-cubes"></i> Base Elements</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="forms-checkout.html"><i class="fa fa-shopping-cart"></i> Checkout</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="forms-contacts.html"><i class="fa fa-comment"></i> Contacts</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="forms-login.html"><i class="fa fa-sign-in"></i> Login</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="forms-register.html"><i class="fa fa-edit"></i> Register</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="toggle waves-effect waves-blue"><i class="fa fa-globe"></i> Pages<span class="badge mdi-navigation-expand-more"></span></a>
+            <div class="submenu">
+              <ul>
+                <li><a class="waves-effect waves-blue" href="page-profile.html">Profile</a>
+                </li>
+
+                <li><a class="waves-effect waves-blue" href="page-forgot-password.html">Forgot Password</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="page-lock.html">Screen Lock</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="page-sign-in.html">Sign In</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="page-sign-up.html">Sign Up</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="page-404.html">404</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="page-500.html">500</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="toggle waves-effect waves-blue"><i class="fa fa-envelope"></i> Mailbox<span class="badge mdi-navigation-expand-more"></span></a>
+            <div class="submenu">
+              <ul>
+                <li><a class="waves-effect waves-blue" href="mail-inbox.html"><i class="mdi-content-inbox"></i> Inbox</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="mail-compose.html"><i class="mdi-content-add-circle"></i> Compose</a>
+                </li>
+                <li><a class="waves-effect waves-blue" href="mail-view.html"><i class="mdi-content-drafts"></i> View</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a href="charts.html" class="waves-effect waves-blue"><i class="fa fa-bar-chart"></i> Charts </a>
+          </li>
+
+          <li>
+            <a href="widgets.html" class="waves-effect waves-blue"><i class="fa fa-magic"></i> Widgets </a>
+          </li>
+
+          <li>
+            <a class="toggle waves-effect waves-blue"><i class="fa fa-indent"></i> Menu Levels<span class="badge mdi-navigation-expand-more"></span></a>
+            <div class="submenu">
+              <ul>
+                <li>
+                  <a class="toggle waves-effect waves-blue" href="#!">Second Level<span class="badge mdi-navigation-expand-more"></span></a>
+                  <div class="submenu">
+                    <ul>
+                      <li>
+                        <a class="toggle waves-effect waves-blue" href="#!">Third Level<span class="badge mdi-navigation-expand-more"></span></a>
+                        <div class="submenu">
+                          <ul>
+                            <li><a href="#!" class="waves-effect waves-blue">Fourth Level</a>
+                            </li>
+                            <li><a href="#!" class="waves-effect waves-blue">Fourth Level</a>
+                            </li>
+                            <li><a href="#!" class="waves-effect waves-blue">Fourth Level</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <a class="toggle waves-effect waves-blue" href="#!">Third Level<span class="badge mdi-navigation-expand-more"></span></a>
+                        <div class="submenu">
+                          <ul>
+                            <li><a href="#!" class="waves-effect waves-blue">Fourth Level</a>
+                            </li>
+                            <li><a href="#!" class="waves-effect waves-blue">Fourth Level</a>
+                            </li>
+                            <li><a href="#!" class="waves-effect waves-blue">Fourth Level</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="label">Stats</li>
+          <li class="content">
+            <span><i class="fa fa-spinner"></i> Server Load</span>
+            <div class="progress small light-green lighten-4">
+              <div class="determinate light-green accent-5" style="width: 37%"></div>
+            </div>
+
+            <span><i class="fa fa-thumbs-o-up"></i> User Satisfaction</span>
+            <div class="progress small">
+              <div class="determinate" style="width: 91%"></div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </aside>
+  <!-- /Sidebar -->
+
+
+  <!-- Main Content -->
+  <section id="content">
+
+
+    <!-- Breadcrumb -->
+    <div class="page-title">
+
+      <div class="row">
+        <div class="col s12 m9 l10">
+          <h1>Internal Server Error</h1>
+
+          <ul>
+            <li>
+              <a href="#"><i class="fa fa-home"></i> Home</a>  <i class="fa fa-angle-right"></i>
+            </li>
+
+            <li><a href='dashboard.html'>Dashboard</a>  <i class='fa fa-angle-right'></i>
+            </li>
+            <li><a href='#'>Pages</a>  <i class='fa fa-angle-right'></i>
+            </li>
+            <li><a href='page-500.html'>500</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col s12 m3 l2 right-align">
+          <a href="#!" class="btn waves-effect grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a>
+        </div>
+      </div>
+
+    </div>
+    <!-- /Breadcrumb -->
+
+    <div id="page-message">
+      <h2>500</h2>
+      <h3>Internal Server Error</h3>
+    </div>
+
+  </section>
+  <!-- /Main Content -->
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <form action="#!">
+      <!-- Header -->
+      <a class="search-bar-toggle grey-text text-darken-2" href="#!"><i class="mdi-navigation-close"></i></a>
+
+      <!-- Search Input -->
+      <div class="input-field">
+        <i class="mdi-action-search prefix"></i>
+        <input type="text" name="con-search" placeholder="Type to search...">
+      </div>
+
+      <h4>Serach results for 'Con'</h4>
+
+      <hr>
+      <!-- Search Results -->
+      <div class="search-results">
+        <div class="result">
+          <h4><a href="http://nkdev.info" target="_blank"><strong>Con</strong> - Material Admin Dashboard</a></h4>
+          <small><a href="http://nkdev.info" target="_blank">http://nkdev.info</a></small>
+          <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum ligula orci, in laoreet tellus cursus eget. Integer accumsan ante at euismod feugiat. Nunc nec eros vestibulum sapien aliquam luctus. Donec malesuada est ut vehicula
+          efficitur. Integer blandit enim sit amet rutrum tincidunt.
+        </div>
+
+        <hr>
+
+        <div class="result">
+          <h4><a href="http://nkdev.info" target="_blank"><strong>Con</strong> - Material Admin Dashboard</a></h4>
+          <small><a href="http://nkdev.info" target="_blank">http://nkdev.info</a></small>
+          <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum ligula orci, in laoreet tellus cursus eget. Integer accumsan ante at euismod feugiat. Nunc nec eros vestibulum sapien aliquam luctus. Donec malesuada est ut vehicula
+          efficitur. Integer blandit enim sit amet rutrum tincidunt.
+        </div>
+
+        <hr>
+
+        <div class="result">
+          <h4><a href="http://nkdev.info" target="_blank"><strong>Con</strong> - Material Admin Dashboard</a></h4>
+          <small><a href="http://nkdev.info" target="_blank">http://nkdev.info</a></small>
+          <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum ligula orci, in laoreet tellus cursus eget. Integer accumsan ante at euismod feugiat. Nunc nec eros vestibulum sapien aliquam luctus. Donec malesuada est ut vehicula
+          efficitur. Integer blandit enim sit amet rutrum tincidunt.
+        </div>
+
+        <hr>
+
+        <div class="result">
+          <h4><a href="http://nkdev.info" target="_blank"><strong>Con</strong> - Material Admin Dashboard</a></h4>
+          <small><a href="http://nkdev.info" target="_blank">http://nkdev.info</a></small>
+          <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum ligula orci, in laoreet tellus cursus eget. Integer accumsan ante at euismod feugiat. Nunc nec eros vestibulum sapien aliquam luctus. Donec malesuada est ut vehicula
+          efficitur. Integer blandit enim sit amet rutrum tincidunt.
+        </div>
+
+        <hr>
+
+        <div class="result">
+          <h4><a href="http://nkdev.info" target="_blank"><strong>Con</strong> - Material Admin Dashboard</a></h4>
+          <small><a href="http://nkdev.info" target="_blank">http://nkdev.info</a></small>
+          <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum ligula orci, in laoreet tellus cursus eget. Integer accumsan ante at euismod feugiat. Nunc nec eros vestibulum sapien aliquam luctus. Donec malesuada est ut vehicula
+          efficitur. Integer blandit enim sit amet rutrum tincidunt.
+        </div>
+
+        <hr>
+
+        <div class="result">
+          <h4><a href="http://nkdev.info" target="_blank"><strong>Con</strong> - Material Admin Dashboard</a></h4>
+          <small><a href="http://nkdev.info" target="_blank">http://nkdev.info</a></small>
+          <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum ligula orci, in laoreet tellus cursus eget. Integer accumsan ante at euismod feugiat. Nunc nec eros vestibulum sapien aliquam luctus. Donec malesuada est ut vehicula
+          efficitur. Integer blandit enim sit amet rutrum tincidunt.
+        </div>
+      </div>
+
+      <p class="center-align">
+        <a href="#!" class="btn-flat waves-effect grey-text text-darken-1">Load More</a>
+      </p>
+
+    </form>
+  </div>
+  <!-- /Search Bar -->
+
+
+
+  <!-- Chat -->
+  <div id="chat">
+
+    <a href="#!" class="chat-toggle"><i class="mdi-navigation-close"></i></a>
+
+    <!-- Contacts -->
+    <div class="contacts">
+      <div class="nano">
+        <div class="nano-content">
+
+          <span class="label">Online</span>
+
+          <div class="user">
+            <img src="assets/_con/images/user2.jpg" alt="Felecia Castro" class="circle photo">
+
+            <div class="name">Felecia Castro</div>
+            <div class="status">Lorem status</div>
+
+            <div class="online"><i class="green-text fa fa-circle"></i>
+            </div>
+          </div>
+
+          <div class="user">
+            <img src="assets/_con/images/user3.jpg" alt="Max Brooks" class="circle photo">
+
+            <div class="name">Max Brooks</div>
+            <div class="status">Lorem status</div>
+
+            <div class="online"><i class="green-text fa fa-circle"></i>
+            </div>
+          </div>
+
+          <div class="user">
+            <img src="assets/_con/images/user4.jpg" alt="Patsy Griffin" class="circle photo">
+
+            <div class="name">Patsy Griffin</div>
+            <div class="status">Lorem status</div>
+
+            <div class="online"><i class="green-text fa fa-circle"></i>
+            </div>
+          </div>
+
+          <div class="user">
+            <img src="assets/_con/images/user5.jpg" alt="Chloe Morgan" class="circle photo">
+
+            <div class="name">Chloe Morgan</div>
+            <div class="status">Lorem status</div>
+
+            <div class="online"><i class="green-text fa fa-circle"></i>
+            </div>
+          </div>
+
+          <div class="user">
+            <img src="assets/_con/images/user6.jpg" alt="Vernon Garrett" class="circle photo">
+
+            <div class="name">Vernon Garrett</div>
+            <div class="status">Lorem status</div>
+
+            <div class="online"><i class="yellow-text fa fa-circle"></i>
+            </div>
+          </div>
+
+          <div class="user">
+            <img src="assets/_con/images/user7.jpg" alt="Greg Mcdonalid" class="circle photo">
+
+            <div class="name">Greg Mcdonalid</div>
+            <div class="status">Lorem status</div>
+
+            <div class="online"><i class="yellow-text fa fa-circle"></i>
+            </div>
+          </div>
+
+          <div class="user">
+            <img src="assets/_con/images/user8.jpg" alt="Christian Jackson" class="circle photo">
+
+            <div class="name">Christian Jackson</div>
+            <div class="status">Lorem status</div>
+
+            <div class="online"><i class="yellow-text fa fa-circle"></i>
+            </div>
+          </div>
+
+
+          <span class="label">Offline</span>
+
+          <div class="user">
+            <img src="assets/_con/images/user9.jpg" alt="Willie Kelly" class="circle photo">
+
+            <div class="name">Willie Kelly</div>
+            <div class="status">Lorem status</div>
+          </div>
+
+          <div class="user">
+            <img src="assets/_con/images/user10.jpg" alt="Jenny Phillips" class="circle photo">
+
+            <div class="name">Jenny Phillips</div>
+            <div class="status">Lorem status</div>
+          </div>
+
+          <div class="user">
+            <img src="assets/_con/images/user11.jpg" alt="Darren Cunningham" class="circle photo">
+
+            <div class="name">Darren Cunningham</div>
+            <div class="status">Lorem status</div>
+          </div>
+
+          <div class="user">
+            <img src="assets/_con/images/user12.jpg" alt="Sandra Cole" class="circle photo">
+
+            <div class="name">Sandra Cole</div>
+            <div class="status">Lorem status</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- /Contacts -->
+
+
+    <!-- Messages -->
+    <div class="messages">
+
+      <!-- Bar with backlink -->
+      <div class="back">
+        <a href="#!"><i class="mdi-hardware-keyboard-arrow-left"></i> Back</a>
+      </div>
+      <!-- /Bar with backlink -->
+
+      <!-- All messages list -->
+      <div class="list">
+        <div class="nano scroll-bottom">
+          <div class="nano-content">
+
+            <div class="date">Monday, Feb 23, 8:23 pm</div>
+
+            <div class="from-me">
+              Hi, Felicia.
+              <br>How are you?
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="from-them">
+              <img src="assets/_con/images/user2.jpg" alt="John Doe" class="circle photo">Hi! I am good!
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="from-me">
+              Glad to see you :)
+              <br>This long text is intended to show how the chat will display it.
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="from-them">
+              <img src="assets/_con/images/user2.jpg" alt="John Doe" class="circle photo">Also, we will send the longest word to show how it will fit in the chat window: <strong>Pneumonoultramicroscopicsilicovolcanoconiosis</strong>
+            </div>
+
+            <div class="date">Friday, Mar 10, 5:07 pm</div>
+
+            <div class="from-me">
+              Hi again!
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="from-them">
+              <img src="assets/_con/images/user2.jpg" alt="John Doe" class="circle photo">Hi! Glad to see you.
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="from-me">
+              I want to add you in my Facebook.
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="from-me">
+              Can you give me your page?
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="from-them">
+              <img src="assets/_con/images/user2.jpg" alt="John Doe" class="circle photo">I do not use Facebook. But you can follow me in Twitter.
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="from-me">
+              It's good idea!
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="from-them">
+              <img src="assets/_con/images/user2.jpg" alt="John Doe" class="circle photo">You can find me here - <a href="https://twitter.com/nkdevv">https://twitter.com/nkdevv</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- /All messages list -->
+
+      <!-- Send message -->
+      <div class="send">
+        <form action="#!">
+          <div class="input-field">
+            <input id="chat-message" type="text" name="chat-message">
+          </div>
+
+          <button class="btn waves-effect"><i class="mdi-content-send"></i>
+          </button>
+        </form>
+      </div>
+      <!-- /Send message -->
+
+    </div>
+    <!-- /Messages -->
+
+  </div>
+  <!-- /Chat -->
+
+
+
+  <footer>&copy; 2015 <strong>nK</strong>. All rights reserved.</footer>
+  <!-- jQuery -->
+  <script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
+
+  <!-- jQuery RAF (improved animation performance) -->
+  <script type="text/javascript" src="assets/jqueryRAF/jquery.requestAnimationFrame.min.js"></script>
+
+  <script>
+    (function() {
+      function toggleSidebar() {
+        // check if small screen on load - set small sidebar
+        if(window.innerWidth <= 796) {
+          $('body').addClass('sidebar-small');
+        } else {
+          $('body').removeClass('sidebar-small');
+        }
+      }
+  
+      var wndResizeTimeout;
+      $(window).on('resize', function() {
+        clearTimeout(wndResizeTimeout);
+        wndResizeTimeout = setTimeout(toggleSidebar, 100);
+      });
+    }())
+  </script>
+
+  <!-- nanoScroller -->
+  <script type="text/javascript" src="assets/nanoScroller/jquery.nanoscroller.min.js"></script>
+
+  <!-- Materialize -->
+  <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
+
+  <!-- Simple Weather -->
+  <script type="text/javascript" src="assets/simpleWeather/jquery.simpleWeather.min.js"></script>
+
+  <!-- d3 -->
+  <script type="text/javascript" src="assets/nvd3/d3.min.js"></script>
+
+  <!-- nvd3 -->
+  <script type="text/javascript" src="assets/nvd3/nv.d3.min.js"></script>
+
+  <!-- Google Prettify -->
+  <script type="text/javascript" src="assets/google-code-prettify/prettify.js"></script>
+
+  <!-- Sortable -->
+  <script type="text/javascript" src="assets/sortable/Sortable.min.js"></script>
+
+  <!-- Main -->
+  <script type="text/javascript" src="assets/_con/js/_con.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<% layout( 'layout') -%>
+    <!-- Main Content -->
+    <section class="content-wrap">
+        <!-- Breadcrumb -->
+        <div class="page-title">
+
+            <div class="row">
+                <div class="col s12 m9 l10">
+                    <h1>Base Form Elements</h1>
+
+                    <ul>
+                        <li>
+                            <a href="/"><i class="fa fa-home"></i> Home</a>  <i class="fa fa-angle-right"></i>
+                        </li>
+
+                        <li><a href='/apartment/list'>All List</a> 
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="col s12 m3 l2 right-align">
+                    <a href="#!" class="btn waves-effect grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <p>Apartment List</p>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <h4>Apartment list</h4>
+                    <div class="card-panel grey lighten-3">
+                        
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Apartment Name</th>
+                                <th>Location</th>
+                                <th>Tags</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% for(var i=0;i<list.length;i++){
+                                var item = list[i]; %>
+                                <tr>
+                                    <th><%=(i+1)%></th>
+                                    <td><%=item.name%></td>
+                                    <td><%=item.address+','+item.city+',' +item.state+','+item.zipcode%>
+                                        <br><%='('+item.latitude+','+item.longitude+')'%>
+                                        </td></td>
+                                    <td><%=item.tags%></td>
+                                    <td><a href="/apartment/edit/<%=item.id%>" class="btn  waves-effect">编辑</a></td>
+                                </tr>
+
+                            <% } %>
+                            
+                            
+                        </tbody>
+                    </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

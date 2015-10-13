@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%=config.website_name %>-
+            <%=title%>
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Con - Admin Dashboard with Material Design</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+
+    <link rel="icon" type="image/png" href="/assets/_con/images/icon.png">
+    <!-- build:css /assets/css/style.css -->
+    <!-- nanoScroller -->
+    <link rel="stylesheet" type="text/css" href="/assets/nanoScroller/nanoscroller.css" />
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" type="text/css" href="/assets/font-awesome/css/font-awesome.min.css" />
+
+    <!-- WeatherIcons -->
+    <link rel="stylesheet" type="text/css" href="/assets/weatherIcons/css/weather-icons.min.css" />
+
+    <!-- Material Design Icons -->
+    <link rel="stylesheet" type="text/css" href="/assets/material-design-icons/css/material-design-icons.min.css" />
+
+    <!-- nvd3 -->
+    <link rel="stylesheet" type="text/css" href="/assets/nvd3/nv.d3.min.css" />
+
+    <!-- Google Prettify -->
+    <link rel="stylesheet" type="text/css" href="/assets/google-code-prettify/prettify.css" />
+
+            
+    <link rel="stylesheet" type="text/css" href="/assets/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/dropzone/dropzone.min.css" />
+
+            
+    <!-- Main -->
+    <link rel="stylesheet" type="text/css" href="/assets/_con/css/_con.css" />
+    <!-- endbuild -->
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv/html5shiv.min.js"></script>
+  <![endif]-->
+            
+
+            <!-- jQuery -->
+    <script type="text/javascript" src="/assets/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Top Navbar -->
+    <%- partial( './topnavbar') %>
+    <!-- /Top Navbar -->
+
+    <!-- sidebar -->
+    <%- partial( './sidebar') %>
+
+
+    <%- body %>
+
+    <%- partial( './searchbar') %>
+    <%- partial( './chat') %>
+
+        
+
+    <div id="confirm-modal" class="modal">
+      <h4 class="confirm-title"></h4>
+      <p class="confirm-content"></p>
+      <div class="action-bar">
+        <a href="javascript:;" class="waves-effect waves-green btn-flat modal-action confirm-ok">OK</a>
+        <a href="javascript:;" class="waves-effect waves-green btn-flat modal-action modal-close confirm-cancel">Cancel</a>
+      </div>
+    </div> 
+    <div id="alert-modal" class="modal">
+      <h4 class="alert-title"></h4>
+      <p class="alert-content"></p>
+      <div class="action-bar">
+        <a href="javascript:;" class="waves-effect waves-green btn-flat modal-action alert-ok">OK</a>
+      </div>
+    </div> 
+        
+    <script>
+    function confirm(title,content,callbackYes,callbackNo){
+        var $model = $("#confirm-modal");
+        $model.find(".confirm-title").text(title);
+        $model.find(".confirm-content").text(content);
+        
+        $model.openModal();
+        
+        var $ok = $model.find(".confirm-ok");
+        $ok.unbind("click");
+        $ok.click(function(){
+            if(callbackYes)
+                callbackYes();
+            $model.closeModal();
+        });
+        var $cancel = $model.find(".confirm-cancel");
+        $cancel.unbind();
+        $cancel.click(function(){
+            if(callbackNo)
+                callbackNo();
+            $model.closeModal();
+        });
+        
+    };
+        
+    function alert(title,content,callback){
+        var $model = $("#alert-modal");
+        $model.find(".alert-title").text(title);
+        $model.find(".alert-content").text(content);
+        
+        $model.openModal();
+        
+        var $ok = $model.find(".alert-ok");
+        $ok.unbind("click");
+        $ok.click(function(){
+            if(callback)
+                callback();
+            $model.closeModal();
+        });
+        
+    };
+        
+        
+        
+        
+    </script>
+        
+    <footer>&copy; 2015 <strong>RentFerence</strong>. All rights reserved.</footer>
+    
+
+    <!-- jQuery RAF (improved animation performance) -->
+    <script type="text/javascript" src="/assets/jqueryRAF/jquery.requestAnimationFrame.min.js"></script>
+
+    <script>
+        (function () {
+            function toggleSidebar() {
+                // check if small screen on load - set small sidebar
+                if (window.innerWidth <= 796) {
+                    $('body').addClass('sidebar-small');
+                } else {
+                    $('body').removeClass('sidebar-small');
+                }
+            }
+
+            var wndResizeTimeout;
+            $(window).on('resize', function () {
+                clearTimeout(wndResizeTimeout);
+                wndResizeTimeout = setTimeout(toggleSidebar, 100);
+            });
+        }())
+    </script>
+
+    <!-- nanoScroller -->
+    <script type="text/javascript" src="/assets/nanoScroller/jquery.nanoscroller.min.js"></script>
+
+    <!-- Materialize -->
+    <script type="text/javascript" src="/assets/materialize/js/materialize.min.js"></script>
+
+    <!-- Simple Weather -->
+    <script type="text/javascript" src="/assets/simpleWeather/jquery.simpleWeather.min.js"></script>
+
+    <!-- d3 -->
+    <script type="text/javascript" src="/assets/nvd3/d3.min.js"></script>
+
+    <!-- nvd3 -->
+    <script type="text/javascript" src="/assets/nvd3/nv.d3.min.js"></script>
+
+    <!-- Google Prettify -->
+    <script type="text/javascript" src="/assets/google-code-prettify/prettify.js"></script>
+
+    <!-- Sortable -->
+    <script type="text/javascript" src="/assets/sortable/Sortable.min.js"></script>
+        
+        
+        <script type="text/javascript" src="/assets/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+
+
+        <script type="text/javascript" src="/assets/jquery-validation/jquery.validate.js"></script>
+    <script type="text/javascript" src="/assets/jquery-validation/additional-methods.js"></script>
+        
+    <script type="text/javascript" src="/assets/dropzone/dropzone.min.js"></script>
+        
+    <!-- Main -->
+    <script type="text/javascript" src="/assets/_con/js/_con.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+<% layout( 'layout') -%>
+    <!-- Main Content -->
+    <section class="content-wrap">
+
+
+        <!-- Breadcrumb -->
+        <div class="page-title">
+
+            <div class="row">
+                <div class="col s12 m9 l10">
+                    <h1>生存指南 内容编辑</h1>
+                    
+                    <ul>
+                        <li>
+                            <a href="/"><i class="fa fa-home"></i> 主页</a>  <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li><a href='/tip/list'>内容列表</a>
+                        <li><a href='/tip/edit'>内容编辑</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col s12 m3 l2 right-align">
+                    <a href="#!" class="btn waves-effect grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <!-- /Breadcrumb -->
+
+
+
+        <form class="form form-validate floating-label" action="/tip/edit" role="form" enctype="multipart/form-data" method="post">
+
+            <input type="hidden" name="id" value="<%=tip==null?'':tip.id%>">
+            <input type="hidden" name="paragraph" id="paragraph_hidden">
+
+            <div class="row">
+                <div class="col l12 m12">
+                    <div class="card-panel grey lighten-3">
+                        <h4>基本信息编辑</h4>
+
+                        <!-- Text Field -->
+                        <div class="row">
+                            <div class="col l12 m12">
+                                <div class="form-group input-field">
+                                    <input id="title-input" type="text" name="title" value="<%=tip==null?'':tip.title%>" required/>
+                                    <label for="title-input">添加标题</label>
+                                </div>
+                            </div>
+                            <div class="col l6 m12">
+                                <div class="form-group input-field">
+                                    <select name="type" value="<%=tip==null?'':tip.type%>"  class="browser-default" required>
+                                        <option value="" disabled>分类</option>
+                                        <% for(var i=0;i<types.length;i++){ %>
+                                            <option value="<%=i%>" <%=(tip!=null&&tip.type==i)?'selected':''%>><%=types[i]%></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col l6 m12">
+                                <div class="form-group input-field">
+                                    <select name="language" value="<%=tip==null?'':tip.language%>"  class="browser-default" required>
+                                        <option value="" disabled>语言</option>
+                                        <option value="cn" <%=(tip!=null&&tip.language=='cn')?'selected':''%>>中文</option>
+                                        <option value="en" <%=(tip!=null&&tip.language=='en')?'selected':''%>>英语</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col l12 m12">
+                                <div class="form-group file-field input-field">
+                                    <input class="file-path validate" type="text" />
+                                    <div class="btn">
+                                        <span>添加封面图片</span>
+                                        <input type="file" class="desc-image-file" name="feature_image" <%=tip==null?'required':''%>/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4>段落预览</h4>
+                        <div class="row paragraphs">
+                            <div class="col l12 m12">
+
+                                <ul class="collapsible" data-collapsible="accordion">
+
+                                </ul>
+
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col l12 m12">
+                                <button class="btn waves-effect waves-light" type="submit" name="action" id="submit-button">Submit
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+
+        <div class="row">
+            <div class="col l12 m12">
+                <div class="card-panel grey lighten-3">
+                    <h4>段落编辑</h4>
+
+
+                    <div class="row">
+                        <div class="col l12 m12">
+                            <select id="target-position" class="browser-default">
+                                <option value="0">Insert after 0</option>
+                            </select>
+                        </div>
+                        <div class="col l9 m12">
+                            <textarea class="materialize-textarea" id="text-input"></textarea>
+                        </div>
+                        <div class="col l3 m12">
+                            <a href="javascript:;" id="insert-text" class="btn " style="width:100%">插入文本</a>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col l12 m12">
+                            <form action="/upload/tip" class="dropzone" id="mydropzone"></form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script type="text/javascript">
+                    var textTemplate = '<li><div class="collapsible-header">' + '<i class="mdi-content-clear remove-para"></i>' + '<i class="mdi-av-my-library-books item-edit"></i>' + 'Paragraph <span class="para-span">{{index}}</span> text</div>' + '<div class="collapsible-body"><textarea style="height:220px">{{context}}</textarea></div></li>';
+            var imageTemplate = '<li><div class="collapsible-header">'+'<i class="mdi-content-clear remove-para"></i>' + '<i class="mdi-image-image"></i>'+'Paragraph <span class="para-span">{{index}}</span> Image</div>' + '<div class="collapsible-body para-image"><img src="/images/tip/{{image}}" data-id="{{image}}"></div></li>';
+   
+        
+        jQuery(function () {
+
+            $("#submit-button").click(function(){
+                setParagraphValue();    
+            });
+            
+            
+            $("#insert-text").click(function () {
+                var target = parseInt($("#target-position").val());
+
+                insertParagraph('text',$("#text-input").val(), target);
+
+                $("#text-input").val('');
+            });
+
+
+
+            Dropzone.options.mydropzone = {
+                paramName: "file", // The name that will be used to transfer the file
+                maxFilesize: <%=maxFilesize%>, // MB
+                accept: function (file, done) {
+                    if (file.name == "justinbieber.jpg") {
+                        done("Naha, you don't.");
+                    } else {
+                        done();
+                    }
+                },
+                addRemoveLinks: true,
+               acceptedFiles:'image/*',
+                success: function (file, result) {
+                    //alert(JSON.stringify(result));
+                    $("#mydropzone .dz-details").last().attr("data-imageid", result.image);
+                    $("#mydropzone .dz-details").click(function () {
+                        //alert($(this).data("imageid")); 
+                        var target = parseInt($("#target-position").val());
+
+                        insertParagraph('image', $(this).data("imageid"), target);
+
+                    });
+                }
+            };
+
+            
+
+            <% if(tip!=null&&tip.paragraph!=null)
+                for(var i=0;i<tip.paragraph.length;i++) {
+                var para = tip.paragraph[i]; %>
+
+                insertParagraph('<%=para.type%>','<%=para.content%>',<%=i%>);
+            <% } %>
+
+            //alert(data[0]);
+
+                                
+                                
+        });
+
+
+        function insertParagraph(type, text, target){
+            
+            var html;
+            if(type=="text")
+                html = textTemplate.replace('{{index}}', target+1)
+                    .replace('{{context}}', text.replace(/\r/g,'<br>').replace(/\n/g,'<br>'));
+            else
+                html = imageTemplate.replace('{{index}}',target+1)
+                            .replace(/{{image}}/g,text.replace(/\r/g,'<br>').replace(/\n/g,'<br>'));
+            
+            insertParagraphHtml(html, target);
+        };
+
+        function insertParagraphHtml(html, target) {
+            if (target == 0)
+                if ($(".paragraphs ul li").length > 0)
+                    $(".paragraphs ul li").first().before(html);
+                else
+                    $(".paragraphs ul").append(html);
+            else {
+                $(".paragraphs ul li").eq(target - 1).after(html);
+            }
+
+            var $opts = $("#target-position option");
+            var newIndex = $opts.length;
+            $("#target-position").append('<option value=' + newIndex + '>Insert after ' + newIndex + '</option>');
+            $("#target-position").val(newIndex);
+            //$('#target-position').material_select();
+            $(".paragraphs ul li").eq(target).find(".remove-para").click(function () {
+                $(this).parent().parent().remove();
+                $("#target-position option").last().remove();
+                resetParagraphIndex();
+                setParagraphValue();
+            });
+            
+
+            
+            
+            
+
+            setParagraphValue();
+        };
+
+         //
+        function resetParagraphIndex() {
+            var $spans = $(".paragraphs .para-span");
+            for (var i = 0; i < $spans.length; i++)
+                $spans.eq(i).text(i + 1);
+        };
+        
+        function setParagraphValue(){
+            var data= [];
+            $(".paragraphs li").each(function(){
+                var obj = {};
+                if($(this).find('img').length){
+                    obj.type = 'image';
+                    obj.content = $(this).find('img').data("id");
+                    data.push(obj);
+                }else{
+                    obj.type = 'text';
+                    obj.content = $(this).find('div.collapsible-body textarea').val().replace(/\r/g,'<br>').replace(/\n/g,'<br>').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+                    data.push(obj);
+                }
+            });
+            
+            $("#paragraph_hidden").val(JSON.stringify(data));
+            //alert(JSON.stringify(data));
+        };
+    </script>

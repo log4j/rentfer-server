@@ -1,0 +1,445 @@
+<% layout( 'layout') -%>
+    <!-- Main Content -->
+    <section class="content-wrap">
+
+
+        <!-- Breadcrumb -->
+        <div class="page-title">
+
+            <div class="row">
+                <div class="col s12 m9 l10">
+                    <h1>Apartment information Edit</h1>
+
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fa fa-home"></i> Home</a>  <i class="fa fa-angle-right"></i>
+                        </li>
+
+                        <li><a href='/edit'>Edit</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col s12 m3 l2 right-align">
+                    <a href="#!" class="btn waves-effect grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <!-- /Breadcrumb -->
+
+        <p>Edit apartment information</p>
+
+
+        <form class="form form-validate floating-label" action="/apartment/edit" role="form" enctype="multipart/form-data" method="post"  >
+            
+            <input type="hidden" name="id" value="<%=apart==null?'':apart.id%>">
+            
+            <div class="row">
+                <div class="col l12 m12">
+                    <div class="card-panel grey lighten-3">
+                        <h4>Basic Information</h4>
+
+                        <!-- Text Field -->
+                        <div class="row">
+                            <div class="col l4 m12">
+                                <div class="input-field form-group has-icon">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="input_text" name="name" type="text" class="validate form-control" required value="<%=apart==null?'':apart.name%>">
+                                    <label for="input_text">Apartment Name</label>
+                                </div>
+                            </div>
+                            <div class="col l8 m12">
+                                <div class="input-field form-group has-icon">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="address" name="address" type="text" class="validate form-control" required value="<%=apart==null?'':apart.address%>">
+                                    <label for="address">Address</label>
+                                </div>
+                            </div>
+                            <div class="col l4 m12">
+                                <div class="input-field form-group has-icon">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="city" name="city" type="text" class="validate form-control" required value="<%=apart==null?'':apart.city%>">
+                                    <label for="city">City</label>
+                                </div>
+                            </div>
+                            <div class="col l4 m12">
+                                <div class="input-field form-group has-icon">
+                                    <!--
+                                    <select name="state" required id="state" value="<%=apart==null?'':apart.state%>" >
+                                        <option value="" disabled selected>Choose option</option>
+                                        <option value="VA">VA</option>
+                                        <option value="DC">DC</option>
+                                        <option value="MD">MD</option>
+                                    </select>
+                                    -->
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="state" name="state" type="text" class="validate form-control" required value="<%=apart==null?'':apart.state%>">
+                                    <label for="State">State</label>
+                                </div>
+                            </div>
+                            <div class="col l4 m12">
+                                <div class="input-field form-group has-icon">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="input_text4" type="text" name="zipcode" required class="validate form-control" value="<%=apart==null?'':apart.zipcode%>">
+                                    <label for="input_text4">Zipcode</label>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="row">
+                        <h4>Location</h4>
+                        <div class="col l4 m12">
+                                <div class="input-field form-group has-icon">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="longitude" type="text" name="longitude" required class="validate form-control" value="<%=apart==null?'':apart.longitude%>">
+                                    <label for="longitude">Longitude</label>
+                                </div>
+                            </div>
+                            <div class="col l4 m4">
+                                <div class="input-field form-group has-icon">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="latitude" type="text" name="latitude" required class="validate form-control" value="<%=apart==null?'':apart.latitude%>">
+                                    <label for="latitude">Latitude</label>
+                                </div>
+                            </div>
+                            <div class="col l4 m4">
+                                <div class="input-field form-group has-icon">
+                                    <a class="btn waves-effect waves-light" id="location">Auto
+                                        <i class="mdi-content-send"></i></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col l12 m12">
+                    <div class="card-panel grey lighten-3">
+                        <h4>公寓信息</h4>
+
+                        <!-- Text Field -->
+                        <div class="row">
+                            <div class="col l12 m12">
+                                <div class="form-group input-field">
+                                    <input id="tag-input" type="text" name="tags" data-role="tagsinput" value="<%=apart==null?'':apart.tags%>"/>
+                                    <label for="tag-input">添加标签</label>
+                                </div>
+                            </div>
+                            <div class="col l12 m12">
+                                <div class="form-group input-field">
+                                    <i class="mdi-communication-chat prefix"></i>
+                                    <textarea id="textarea_icon" class="materialize-textarea" name="desc"><%=apart==null?'':apart.desc%></textarea>
+                                    <label for="textarea_icon">添加描述</label>
+                                </div>
+                            </div>
+                            <div class="col l12 m2">
+                                <label>添加封面图片</label>
+                            </div>
+                            <div class="col l12 m10">
+                                <div class="form-group file-field input-field">
+                                    <input class="file-path validate" type="text" />
+                                    <div class="btn">
+                                        <span>Image</span>
+                                        <input type="file" class="desc-image-file" name="descimage"/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <h4>公共设施信息</h4>
+                        <div class="row">
+                            
+                            <% if(apart&&apart.facilities)
+                                for(var i=0;i<apart.facilities.length;i++){ 
+                                    var faci = apart.facilities[i];
+                            %>
+                                <div class="row">
+                                <div class="col l4 m10">
+                                    <span class="blue btn"><%=faci.desc%></span>
+                                </div>
+                                
+                                <div class="col l4 m10">
+                                    <image src="/images/apartments/<%=faci.image%>" style="max-width:140px;max-height:80px;"></image>
+                                </div>
+                                
+                                <div class="col l4 m12">
+                                    <p >
+                                      <input type="checkbox" id="checkbox<%=i%>" name="<%=faci.image%>"/>
+                                      <label for="checkbox<%=i%>" style="color:red">删除</label>
+                                    </p>    
+                                </div>
+                                </div>
+                            <% } %>
+                            
+                            <input type="hidden" id="apart-image-counter" value="0" name="apartimagecounter">
+                            <div class="apart-image" style="display:none;">
+                    
+                            <div class="col l4 m12">
+                                <div class="input-field form-group has-icon">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="input_text" type="text" class="validate form-control apart-image-desc" required>
+                                    <label for="input_text">描述</label>
+                                </div>
+                            </div>
+                            <div class="col l7 m10">
+                                <div class="file-field input-field">
+                                    <input class="file-path validate" type="text" />
+                                    <div class="btn">
+                                        <span>Image</span>
+                                        <input type="file" class="apart-image-file"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l1 m2">
+                                <div class="input-field">
+                                <a class="btn-floating waves-effect waves-light apart-image-remove red" href="#confirm-modal">
+                                    <i class="mdi-content-clear"></i> </a>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            
+                            
+                            <div class="col l12 m12">
+                                <a class="btn waves-effect waves-light right" type="" name="" id="apart-image-add">Add More
+                                <i class="mdi-content-send right"></i>
+                            </a>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col l12 m12">
+                    <div class="card-panel grey lighten-3">
+                        <h4>房型信息</h4>
+
+                        
+                        <% if(apart&&apart.rents)
+                                for(var i=0;i<apart.rents.length;i++){ 
+                                    var rent = apart.rents[i];
+                        %>
+                        <div class="row">
+                            <div class="col l3 m6">
+                                <div class="input-field">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="input_old_<%=i%>" type="text" class="validate form-control disable" value="<%=rent.type%>" disabled>
+                                    <label for="input_old_<%=i%>">Type</label>
+                                </div>
+                            </div>
+                            <div class="col l3 m6">
+                                <div class="input-field">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="room-info-price" type="number" class="validate form-control disable" value="<%=rent.price%>" disabled>
+                                    <label for="room-info-price">Price</label>
+                                </div>
+                            </div>
+                            <div class="col l3 m10">
+                                <div class="file-field input-field">
+                                    <image src="/images/apartments/<%=rent.image%>" style="max-width:140px;max-height:40px;"></image>
+                                </div>
+                            </div>
+                            <div class="col l3 m2">
+                                <p >
+                                      <input type="checkbox" id="checkbox_rent_<%=i%>" name="<%=rent.image%>"/>
+                                      <label for="checkbox_rent_<%=i%>" style="color:red">删除</label>
+                                    </p>
+                            </div>
+                        </div>
+                        <% } %>
+                        <!-- Text Field -->
+                        <div class="row">
+                            <input type="hidden" id="room-info-counter" value="0" name="roominfocounter">
+                            <div class="room-info" style="display:none;">
+                            <div class="col l3 m6">
+                                <div class="input-field form-group has-icon">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="input_text" type="text" class="validate form-control room-info-type" required>
+                                    <label for="input_text" class="room-info-type-label">Type</label>
+                                </div>
+                            </div>
+                            <div class="col l2 m6">
+                                <div class="input-field form-group has-icon">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input id="room-info-price" type="number" class="validate form-control room-info-price" required>
+                                    <label for="room-info-price" class="room-info-price-label">Price</label>
+                                </div>
+                            </div>
+                            <div class="col l6 m10">
+                                <div class="file-field input-field">
+                                    <input class="file-path validate" type="text" />
+                                    <div class="btn">
+                                        <span>Image</span>
+                                        <input type="file" class="room-info-file" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l1 m2">
+                                <div class="input-field">
+                                <a class="btn-floating waves-effect waves-light room-info-remove red" href="javascript:;">
+                                    <i class="mdi-content-clear"></i> </a>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            <div class="col l6 m12 right">
+                                <a class="btn waves-effect waves-light right" id="room-info-add">Add More
+                                <i class="mdi-content-send right"></i>
+                            </a>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="col l6 m12">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </section>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        jQuery(function () {
+            
+            
+            function getLocation(address) {
+                // geocoder docs: http://code.google.com/apis/maps/documentation/geocoding/
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({address: address },
+                function (results, status) {
+                    if (status != google.maps.GeocoderStatus.OK) {
+                        if (options.onError)
+                            options.onError('Geocoder response failed.');
+                        return;
+                    }
+                    if (!results.length) {
+                        if (options.onError)
+                            options.onError('Failed to locate address.');
+                        return;
+                    }
+                    
+                    if(results.length>0){
+                        $("#longitude").val(results[0].geometry.location.D);
+                        $("#longitude").focusin();
+                        $("#latitude").val(results[0].geometry.location.k);
+                        $("#latitude").focusin();
+                    }else{
+                        alert("can not locate");   
+                    }
+
+                }
+                );
+            };
+            
+            
+            $("#location").click(function(){
+                var address = $("#address").val().replace(/ /g,'+')+','+$("#city").val()
+                    +','+$("#state").val();
+                console.log("address:"+address);
+                
+                getLocation(address);
+                
+            });
+            
+           // console.log("add button click binding");
+            $("#apart-image-add").click(function(){  
+                var $div = $(".apart-image").last();
+                
+                //copy elements
+                $div.after($div[0].outerHTML);
+                $div = $(".apart-image").last();
+                
+                //change name
+                var counter = parseInt($("#apart-image-counter").val());
+                $("#apart-image-counter").val(++counter);
+                $div.find(".apart-image-desc").attr("name","apartimagedesc"+counter).attr("id","apartimagedesc"+counter);
+                $div.find("label").attr("for","apartimagedesc"+counter);
+                
+                $div.find(".apart-image-file").attr("name","apartimagefile"+counter);
+                
+                
+                $div.show();
+                $div.find("input[type='file']").change(function(){
+                    $div.find(".file-path").val($(this).val()); 
+                });
+                $div.find(".apart-image-remove").click(function(e){
+                    
+                    console.log("remove button click");
+                    confirm("提示","是否删除?",function(){
+                            $div.remove();
+                        });
+                        e.preventDefault();
+                    /*
+                    var dismissible = $(this).attr('data-dismissible') == "true" || false;
+                    var opacity = $(this).attr('data-opacity') || 0.5;
+                    var in_duration = $(this).attr('data-induration') || 300;
+                    var out_duration = $(this).attr('data-outduration') || 300;
+                        
+                    $(this).leanModal({
+                        dismissible: dismissible,
+                        opacity: opacity,
+                        in_duration: in_duration,
+                        out_duration: out_duration
+                    });*/
+                });
+            });
+            
+            $("#room-info-add").click(function(){  
+                var $div = $(".room-info").last();
+                $div.after($div[0].outerHTML);
+                $div = $(".room-info").last();
+                
+                //change name
+                var counter = parseInt($("#room-info-counter").val());
+                $("#room-info-counter").val(++counter);
+                $div.find(".room-info-type").attr("name","roominfotype"+counter).attr("id","roominfotype"+counter);
+                $div.find(".room-info-type-label").attr("for","roominfotype"+counter);
+                $div.find(".room-info-file").attr("name","roominfofile"+counter);
+                $div.find(".room-info-price").attr("name","roominfoprice"+counter).attr("id","roominfoprice"+counter);
+                $div.find(".room-info-price-label").attr("for","roominfoprice"+counter);
+                
+                $div.show();
+                $div.find("input[type='file']").change(function(){
+                    $div.find(".file-path").val($(this).val()); 
+                });
+                $div.find(".room-info-remove").click(function(e){
+                    confirm("提示","是否删除?",function(){
+                            $div.remove();
+                        });
+                });
+            });
+        });
+    </script>

@@ -1,0 +1,53 @@
+<head>
+<title>Linda Lin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+
+    <link rel="icon" type="image/ico" href="/assets/images/favicon.ico" />
+    <!-- Bootstrap -->
+    <link href="/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="/assets/css/vendor/bootstrap/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/vendor/bootstrap-checkbox.css">
+
+    <link href="/assets/css/minimal.css" rel="stylesheet">
+    
+</head>
+
+<body class="bg-1">
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+      <!-- Make page fluid -->
+      <div class="row">
+        <!-- Page content -->
+        <div id="content" class="col-md-12 full-page error">
+        <div class="main">
+            <div class='inside-block'>
+            <section class='title'>
+            
+            <div class='tile-header'>
+                <h1><strong>Visitor</strong> List</h1>
+                </div>
+            <div class='title-body'>
+            <table class="table table-hover">
+            <tr><th>Target</th><th>From</th><th>Time</th></tr>
+            <% for(var i=0;i<visitors.length;i++){var visitor = visitors[i]; %>
+                <tr>
+                    <td><%=visitor.domain%></td>
+                    <td><%=visitor.address%></td>
+                    <td><%=visitor.time.format('mm/dd/yyyy HH:MM:ss')%></td>
+                </tr>
+            <% } %>
+            </table>
+            </div>
+            </div>
+            </section>
+        </div>
+        </div>
+    </div>
+          </div>
+    
+</body>
