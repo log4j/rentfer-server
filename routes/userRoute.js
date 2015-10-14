@@ -80,6 +80,7 @@ exports.createUser = function (req, res, next) {
     var user = new User();
     user.email =  req.body.email;
     user.password = req.body.password;
+    user.username = req.body.email;
 
     if(tools.isEmpty(user.email)||tools.isEmpty(user.password)){
         return res.json(Results.ERR_PARAM_ERR);
@@ -95,7 +96,7 @@ exports.createUser = function (req, res, next) {
         user.save(function (err, user) {
 
             if (err)
-                return next();
+                res.json({result:false,err:err});
             else
                 res.json({
                     result: true,
@@ -169,13 +170,23 @@ exports.getUser = function (req, res, next) {
                     };
 
                     console.log(req.user._id,user._id);
+                    console.log(req.user.id,user.id);
+                    console.log(user.toObject());
+
+                    var userObject = user.toObject();
                     /**
                      *
                      */
-                    if(req.user._id == user._id){
+                    if(req.user.id == user.id){
+                        console.log('same');
                         User.schema.eachPath(function(path){
-                            if(user.hasOwnProperty(path))
-                                data[path] = user[path];
+
+                            console.log(path);
+                            if(userObject.hasOwnProperty(path)){
+                                console.log('yes!');
+                                data[path] = userObject[path];
+
+                            }
                         });
                     }
                     else{
