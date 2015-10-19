@@ -14,8 +14,8 @@ exports.uploadImage = function (file,prefix,callback) {
         if(err)
             return callback(err);
         // 删除临时文件夹文件,
-        fs.unlink(tmp_path, function(unlinkErr){
-            return callback(unlinkErr,imageName);
-        });
+        //fs.unlink(tmp_path, function(unlinkErr){
+            return callback(null,imageName);
+        //});
     });
 };

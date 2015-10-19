@@ -1,6 +1,6 @@
 var userRoute = require('./routes/userRoute');
 var tipRoute = require('./routes/tipRoute');
-var secondhandRoute = require('./routes/secondhandRoute');
+var marketRoute = require('./routes/marketRoute');
 var imageRoute = require('./routes/imageRoute');
 
 var passport = require('passport');
@@ -40,13 +40,13 @@ module.exports = function (app) {
     app.get('/tip/:id', tipRoute.getOne);
     app.delete('/tip/:id', tipRoute.delete);
 
-    app.post('/secondhand', secondhandRoute.createItem);
-    app.put('/secondhand/:id', secondhandRoute.updateItem);
-    app.get('/secondhand', secondhandRoute.getList);
-    app.get('/secondhand/:id', secondhandRoute.getItem);
-    app.delete('/secondhand/:id', secondhandRoute.deleteItem);
+    app.post('/market', marketRoute.createItem);
+    app.put('/market/:id', marketRoute.updateItem);
+    app.get('/market', marketRoute.getList);
+    app.get('/market/:id', marketRoute.getItem);
+    app.delete('/market/:id', marketRoute.deleteItem);
 
-    app.post('/upload', upload.single('avatar'),imageRoute.uploadImage);
+    app.post('/image/market', upload.single('market'),imageRoute.uploadImage);
 
 
     app.get('/', function (req, res) {

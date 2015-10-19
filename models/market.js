@@ -4,15 +4,16 @@ var utility = require('utility');
 var ObjectId = Schema.ObjectId;
 
 
-var SecondhandSchema = new Schema({
+var MarketSchema = new Schema({
     user: {
-        type: ObjectId
+        type: ObjectId,
+        ref: 'User'
     },
     title: {
         type: String
     },
     type: {
-        type: String
+        type: Number
     },
     images: [String],
     price: {
@@ -42,11 +43,11 @@ var SecondhandSchema = new Schema({
     }
 });
 
-SecondhandSchema.index({
+MarketSchema.index({
     create_at: 1
 }, {
     unique: false
 });
 
 
-mongoose.model('Secondhand', SecondhandSchema);
+mongoose.model('Market', MarketSchema);

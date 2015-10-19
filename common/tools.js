@@ -17,11 +17,11 @@ exports.formatDate = function (date, friendly) {
 
 exports.parsePageQuery = function (query){
     var page = {
-        page: 1,
+        start: 0,
         size : 20
     };
-    if(query.page)
-        page.page = parseInt(query.page);
+    if(query.start)
+        page.start = parseInt(query.start);
     if(query.size)
         page.size = parseInt(query.size);
 

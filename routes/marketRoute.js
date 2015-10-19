@@ -13,7 +13,7 @@ var EventProxy = require('eventproxy');
 var tools = require('../common/tools');
 var Results = require('./commonResult');
 
-var Secondhand = require('../models').Secondhand;
+var Market = require('../models').Market;
 
 
 var fs = require('fs');
@@ -21,21 +21,23 @@ var fs = require('fs');
 
 exports.createItem = function (req, res, next) {
 
-
     console.log(req.body);
 
-    var item = new Secondhand();
-    //item.user = req.user.id;
+    var item = new Market();
+    item.user = req.user.id;
+
     item.title = req.body.title;
     item.type = req.body.type;
     item.price = req.body.price;
     item.location = req.body.location;
     item.description = req.body.description;
     item.images = req.body.images.slice(0);
+    //item.user = req.us
+    console.log(item);
 
     item.save(function(err,savedItem){
         if(err){
-            res.json({ab:'haha'});
+            res.json({result:false,err:err,ab:'haha'});
         }
         else{
             res.json({result:true,data:savedItem});
@@ -46,7 +48,7 @@ exports.createItem = function (req, res, next) {
 exports.updateItem = function (req, res, next) {
     var itemId = req.param('id');
     if (itemId) {
-        Secondhand.findById(itemId,function(err,item){
+        Market.findById(itemId,function(err,item){
             if(err){
                 res.json(Results.ERR_DB_ERR);
             }else{
@@ -79,7 +81,9 @@ exports.getItem = function (req, res, next) {
 
     var itemId = req.param('id');
     if (itemId) {
-        Secondhand.findById(itemId,function(err,item){
+        var query = Market.findById(itemId);
+        query.populate('user','lastname avatar');
+        query.exec(function(err,item){
             if(err){
                 res.json(Results.ERR_DB_ERR);
             }else{
@@ -103,16 +107,22 @@ exports.getList = function (req, res, next) {
 
     var page = tools.parsePageQuery(req.query);
 
-    var queryPara = {};
+    var queryPara = {delete:false};
 
     if (req.query.query) {
         queryPara.title = {"$regex": req.query.query, "$options": i};
     }
 
-    var query = Secondhand.find(queryPara);
+    console.log(req.user);
+    if(req.query.owner === 'self'){
+        queryPara.user = req.user._id;
+    }
 
-    query.skip((page.page - 1) * page.size).limit(page.size);
+    var query = Market.find(queryPara);
+    query.sort({update_at:-1});
+    query.skip(page.start).limit(page.size);
 
+    query.populate('user','lastname avatar');
 
     query.exec(function (err, list) {
         if (err) {
