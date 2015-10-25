@@ -47,12 +47,27 @@ exports.getList = function(req, res, next){
                 result.push(createSimpleEntity(list[i]));
             }
         }
-        res.jsonp(result);
+        res.json(result);
     });
 };
 
 exports.getOne = function(req, res, next){
+    var id = req.param('id');
+    Tip.findById(id, function(err, item){
 
+        item.view_amount ++;
+        item.update_at = new Date();
+        item.save(function(){
+            var obj = createSimpleEntity(item);
+            obj.paras = [];
+            for(var i=0;i<item.paragraph.length;i++)
+                obj.paras.push(item.paragraph[i]);
+
+            res.json(obj);
+        });
+
+
+    });
 };
 
 exports.create = function(req, res, next){
