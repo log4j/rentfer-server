@@ -160,6 +160,7 @@ exports.getUser = function (req, res, next) {
                         first_name: user.firstname,
                         last_name: user.lastname,
                         gender: user.gender,
+                        avatar: user.avatar,
                         avatar_url: user.avatar_url,
                         basic_visible: user.basic_visible,
                         habit_visible: user.habit_visible,

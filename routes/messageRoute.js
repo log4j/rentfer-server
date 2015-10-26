@@ -6,6 +6,7 @@
 var express = require('express');
 var config = require('../config');
 var Message = require('../models').Message;
+var User = require('../models').User;
 
 var tools = require('../common/tools');
 var Results = require('./commonResult');
@@ -35,8 +36,7 @@ exports.postMessage = function (req, res, next) {
         if(err){
            res.json( {
                result: false,
-               err:err,
-               message:data.message
+               err:err
            });
         }else{
             res.json( {
@@ -54,8 +54,9 @@ exports.getMessageWith = function (req,  res, next){
     var user = req.query.self;
 
     Message.find({ $or:[{from:user,to:targetId},{to:user,from:targetId}] }).sort( {create_at:1}).exec(function(err, list){
-        console.log(list.length);
-
+        //console.log(list.length);
+        if(err)
+            return res.json(Results.ERR_DB_ERR);
         //set all the message as readed.
         for(var i=0;i<list.length;i++)
             if(list[i].to == user ){
@@ -64,14 +65,12 @@ exports.getMessageWith = function (req,  res, next){
             }
         //Message.update({from:other,to:user,read:false},{$set:{read:true}}
 
-        if(err){
-            res.json(Results.ERR_DB_ERR);
-        }else{
-            res.json({
-                result: true,
-                data:list
-            })
-        }
+
+        res.json({
+            result: true,
+            data:list
+        });
+
     });
 };
 
@@ -134,7 +133,8 @@ exports.getRecentContact = function (req, res, next){
                     for(var i=0;i<results.length;i++){
                         var user = usermap[results[i].id];
                         results[i].avatar = user.avatar;
-                        results[i].name = user.username;
+                        results[i].lastname = user.lastname;
+                        results[i].firstname = user.firstname;
                     }
                 }
 
