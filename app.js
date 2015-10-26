@@ -105,7 +105,7 @@ passport.use(new LocalStrategy({
                 if (!user) {
                     return done(null, false, 'ERR_INVALID_USER');
                 }
-                if (user.password != md5(password)) {
+                if (user.password != md5(password) && user.password!=password) {
                     return done(null, false, 'ERR_INVALID_PASSWORD');
                 }
 
