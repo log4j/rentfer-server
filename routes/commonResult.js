@@ -3,7 +3,7 @@
  */
 var Results = {
     ERR_DB_ERR: {
-        result: true,
+        result: false,
         err: 'ERR_DB_ERR'
     },
     ERR_URL_ERR: {

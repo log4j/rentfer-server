@@ -2,6 +2,7 @@ var userRoute = require('./routes/userRoute');
 var tipRoute = require('./routes/tipRoute');
 var marketRoute = require('./routes/marketRoute');
 var imageRoute = require('./routes/imageRoute');
+var messageRoute = require('./routes/messageRoute');
 
 var passport = require('passport');
 
@@ -47,6 +48,12 @@ module.exports = function (app) {
     app.delete('/market/:id', marketRoute.deleteItem);
 
     app.post('/image/market', upload.single('market'),imageRoute.uploadImage);
+
+
+    app.post('/message', messageRoute.postMessage);
+    app.get('/message', messageRoute.getMessageWith);
+    app.get('/message/unread/:user',messageRoute.getUnreadMessageSize);
+    app.get('/message/contact/:user',messageRoute.getRecentContact);
 
 
     app.get('/', function (req, res) {
