@@ -53,10 +53,24 @@ exports.getMessageWith = function (req,  res, next){
     var targetId = req.query.target;
     var user = req.query.self;
 
-    Message.find({ $or:[{from:user,to:targetId},{to:user,from:targetId}] }).sort( {create_at:1}).exec(function(err, list){
+    var date = req.query.date;
+
+    var query = { $or:[{from:user,to:targetId},{to:user,from:targetId}]};
+    if(date){
+        date = new Date(date);
+        console.log(date);
+        query["create_at"] = {"$gt": date};
+
+        //query = {$and:[query,{"created_at":{"$gt": date}}]}
+    }
+
+    Message.find(query).sort( {create_at:1}).exec(function(err, list){
         //console.log(list.length);
-        if(err)
+        if(err){
+            console.log(err);
             return res.json(Results.ERR_DB_ERR);
+        }
+
         //set all the message as readed.
         for(var i=0;i<list.length;i++)
             if(list[i].to == user ){
@@ -64,7 +78,6 @@ exports.getMessageWith = function (req,  res, next){
                 list[i].save(null);
             }
         //Message.update({from:other,to:user,read:false},{$set:{read:true}}
-
 
         res.json({
             result: true,
