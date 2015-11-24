@@ -1,0 +1,32 @@
+<ion-view view-title="" class='view-screen'>
+    <ion-content class="padding">
+        <div class="row">
+            <div class="col col-25 text-center tip-list-left">
+                <i class="ion-chevron-left"></i>
+            </div>
+            <div class="col col-50 text-center tip-list-center">
+                <label class="tip-list-title">All</label>
+                <label class="tip-list-amount">15</label>
+            </div>
+            <div class="col col-25 text-center tip-list-right">
+                <i class="ion-chevron-right"></i>
+            </div>
+
+        </div>
+
+        <ion-list class="list-menu tip-list">
+
+            <ion-item ng-repeat="tip in list">
+                <a ui-sref="tab.tip-view({id:'{{tip.id}}'})">
+                    <div class="tip-img">
+                        <img lazy-image="{{tip.image}}" lazy-image-type="tip">
+                    </div>
+                    {{tip.title}}
+                    <label><i class="ion-ios-monitor">&nbsp;</i>{{tip.view}}
+                    </label>
+                </a>
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

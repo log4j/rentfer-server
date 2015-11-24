@@ -1,0 +1,42 @@
+<ion-view view-title="Me" class='view-screen'>
+
+
+    <ion-content class="padding">
+
+
+        <ion-list class="list-menu">
+
+            <ion-item>
+                <a rent-edit='firstNameEditor'>First Name
+                <label>{{firstNameEditor.value}}</label>
+                </a>
+            </ion-item>
+            <ion-item>
+                <a href="" rent-edit="lastNameEditor">Last Name
+                <label>{{lastNameEditor.value}}</label>
+                </a>
+            </ion-item>
+            <ion-item>
+                <a href="" class="disabled">Email
+                <label>{{profile.email}}</label>
+                </a>
+            </ion-item>
+            <ion-item>
+                <a href="" rent-edit="genderEditor">Gender
+                <label>{{profile.gender}}</label>
+                </a>
+            </ion-item>
+            <ion-item>
+                <a>Birthday
+                    <ionic-datepicker input-obj="datepickerObject" >
+                        <label> {{datepickerObject.inputDate | date:'MM/dd/yyyy'}}</label>
+                    </ionic-datepicker>
+                </a>
+            </ion-item>
+            <ion-toggle toggle-class="toggle-royal" ng-change="change('basic_visible',profile.basic_visible)" ng-model="profile.basic_visible">
+                Visible
+            </ion-toggle>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

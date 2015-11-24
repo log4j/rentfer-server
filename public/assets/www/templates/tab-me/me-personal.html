@@ -1,0 +1,33 @@
+<ion-view view-title="Personal Information" class='view-screen'>
+    <ion-content class="padding">
+
+        <ion-list class="list-menu">
+
+            <ion-item>
+                <a rent-edit='smokingEditor'>Smoking
+                <label>{{smokingEditor.displayValue}}</label>
+                </a>
+            </ion-item>
+            <ion-item>
+                <a href="" rent-edit="drinkingEditor">Drinking
+                <label>{{drinkingEditor.displayValue}}</label>
+                </a>
+            </ion-item>
+            <ion-item>
+                <a href="" rent-edit="cookingEditor">Cooking
+                <label>{{cookingEditor.displayValue}}</label>
+                </a>
+            </ion-item>
+            <ion-toggle ng-model="profile.pet" ng-change="change('pet',profile.pet)" toggle-class="toggle-royal">
+                Pet
+            </ion-toggle>
+            <ion-toggle ng-model="profile.driving" ng-change="change('driving',profile.driving)" toggle-class="toggle-royal">
+                Driving
+            </ion-toggle>
+            <ion-toggle ng-model="profile.habit_visible" ng-change="change('habit_visible',profile.habit_visible)" toggle-class="toggle-royal">
+                Habit Visible
+            </ion-toggle>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

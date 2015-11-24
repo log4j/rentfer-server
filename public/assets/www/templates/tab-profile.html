@@ -1,0 +1,58 @@
+<ion-view view-title="Profile" class='view-screen'>
+    <ion-content class="no-padding roomie-profile">
+        <div class="avatar-back">
+            <div class="avatar-back-img">
+                <img 
+                     lazy-image="{{profile.avatar}}" lazy-image-type="avatar" ng-if="profile"
+                     >
+            </div>
+            <div class="avatar-profile">
+                <img 
+                     lazy-image="{{profile.avatar}}" lazy-image-type="avatar" ng-if="profile"
+                     >
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-100 profile-infor">
+                <div class="profile-infor-content">
+                    <label class="profile-name">{{profile.first_name}} {{profile.last_name}}</label>
+                </div>
+                <div class="profile-infor-title">
+                    Information
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-50 no-padding">
+                <div class="profile-habit">
+                    <div class="profile-habit-content">
+                        Smoking: {{labels.smoking[profile.smoking]}}
+                        <br>Drinking: {{labels.drinking[profile.drinking]}}
+                        <br>Cooking: {{labels.cooking[profile.cooking]}}
+                        <br>Pet: {{profile.pet?'Yes':'No'}}
+                    </div>
+                    <div class="profile-habit-title">
+                        Habit
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col col-50 no-padding">
+                <div class="profile-rent">
+                    <div class="profile-rent-content">
+                        <label>Start: {{profile.rent_start | date:'MM/dd/yyyy'}}</label>
+                        <label>Duration: {{profile.rent_duration}}</label>
+                    </div>
+                    <div class="profile-rent-title">
+                        Rent
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,58 @@
+<ion-view view-title="" class='view-screen' hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button" ng-click="cancel()">Cancel</button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        New Item!
+    </ion-nav-title>
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+    <ion-content class="padding rent-edit">
+
+        <ion-list class="list-menu">
+
+            <ion-item>
+                <a rent-edit='titleEditor'>Title</a>
+            </ion-item>
+
+
+            <ion-item>
+                <a rent-edit='typeEditor'>Type</a>
+            </ion-item>
+
+            <ion-item>
+                <a rent-edit='priceEditor'>Price
+                <label></label>
+                </a>
+            </ion-item>
+
+
+            <ion-item>
+                <a rent-edit='locationEditor'>Location</a>
+            </ion-item>
+
+            <ion-item>
+                <a rent-edit='descriptionEditor'>Description</a>
+            </ion-item>
+
+            <ion-item>
+                Images
+                <div class="market-image-preview">
+                    <img ng-repeat="image in item.images" ng-src="{{image.unsaved?image.url:getMarketImage(image.imageName)}}">
+                    <i class="ion-plus-circled" ng-click="showImageUploadSheet()"></i>
+
+                </div>
+            </ion-item>
+
+            <ion-item>
+                <button class="button button-block button-rentfer" ng-click='submit()'>
+                    Submit
+                </button>
+            </ion-item>
+
+        </ion-list>
+
+
+
+    </ion-content>
+</ion-view>

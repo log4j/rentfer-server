@@ -1,0 +1,31 @@
+<ion-view view-title="Personal Information" class='view-screen'>
+    <ion-content class="padding">
+
+        <ion-list class="list-menu">
+            <ion-toggle ng-model="profile.seeking" toggle-class="toggle-royal">
+                Seeking
+            </ion-toggle>
+
+            <ion-item>
+                <a>Start Date
+                    <ionic-datepicker input-obj="datepickerObject" >
+                        <label> {{datepickerObject.inputDate | date:'MM/dd/yyyy'}}</label>
+                    </ionic-datepicker>
+                </a>
+            </ion-item>
+
+
+            <ion-item>
+                <a href="" rent-edit="durationEditor">Duration
+                <label>{{profile.rent_duration}}</label>
+                </a>
+            </ion-item>
+            <ion-item>
+                <a href="" rent-edit="maxRoommateNumEditor">Max Roomates
+                <label>{{profile.max_roommates}}</label>
+                </a>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

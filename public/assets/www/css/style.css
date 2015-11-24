@@ -1,0 +1,820 @@
+/* Empty. Add your own CSS if you like */
+
+.tabs-top .tab-nav {
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0.6, 0.2, 1);
+    transition-timing-function: cubic-bezier(0.4, 0.6, 0.2, 1);
+    -webkit-transition-duration: 200ms;
+    transition-duration: 200ms;
+    -webkit-transition-property: all;
+    transition-property: all;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.tabs-top .slide-away {
+    transform: translate3d(0, -50px, 0);
+    -webkit-transform: translate3d(0, -50px, 0);
+}
+
+.tabs-bottom .tab-nav,
+.tab-nav {
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    -webkit-transition-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
+    transition-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
+    -webkit-transition-property: all;
+    transition-property: all;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.tabs-bottom .slide-away,
+.slide-away {
+    transform: translate3d(0, 49px, 0);
+    -webkit-transform: translate3d(0, 49px, 0);
+}
+
+.view-login {
+    background-image: url(../img/bg1.png);
+    background-size: 100%;
+}
+
+.view-screen,
+.ionic_datepicker_modal {
+    background-image: url(../img/bg1.png);
+    background-size: 100%;
+    color: white;
+}
+
+.panel-login-buttons {
+    height: 30%;
+    background-color: rgba(255, 255, 255, 0.1);
+    vertical-align: bottom;
+    align-items: flex-end;
+}
+
+.panel-login-buttons .button {
+    margin: 0px;
+    color: white;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+.login-button-selected {
+    border-bottom: 2px solid #8B88FF;
+}
+
+.item-input {
+    border-bottom: 1px solid #565454 !important;
+    padding-left: 2px;
+}
+
+.item-input .icon {
+    font-size: 2em;
+    color: #949395;
+    padding-right: 10px;
+}
+
+.item-input input {
+    color: white;
+}
+
+.bar-stable {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: none;
+}
+
+.bar-stable .title {
+    color: white !important;
+}
+
+.bar-stable .buttons .button {
+    padding: 3px;
+    background: none;
+    color: #8D8D8E;
+    box-shadow: none;
+    max-width: 100px;
+    width: auto;
+}
+
+.tabs-rentfer .tabs {
+    background: none;
+    background-color: rgba(200, 200, 200, 0.1);
+}
+
+.tabs-rentfer a {
+    color: #9F9DA2;
+}
+
+.tab-item-active {
+    color: #9894FF !important;
+}
+
+.second-panel {
+    padding: 5px;
+}
+
+.second-item {
+    min-height: 80px;
+    background-color: rgba(200, 200, 220, 0.15);
+    border-left: 2px solid #62D7C8;
+    color: white;
+    padding: 6px;
+}
+
+.button-rentfer {
+    background-color: #8B88FF;
+}
+
+.tab-me {
+    height: 128px;
+    text-align: center;
+}
+
+.tab-me .avatar {
+    height: 96px;
+    width: 96px;
+    margin: auto;
+    position: inherit;
+}
+
+.tab-me .avatar img {
+    height: 96px;
+    width: 96px;
+    margin: auto;
+}
+
+.list-menu .item {
+    color: white;
+    border-bottom: 1px solid #525151;
+}
+
+.list-menu .item a {
+    color: white;
+    display: block;
+    text-decoration: none;
+}
+
+.list-menu .item a label {
+    float: right;
+    color: #A7A6A7;
+    max-width: 60%;
+    overflow: hidden;
+    white-space: initial;
+}
+
+.list-menu .item a::after {
+    content: "\f125";
+    font-family: "Ionicons";
+    position: absolute;
+    right: 0;
+    color: #A7A6A7;
+}
+
+.list-menu .item a.disabled::after {
+    content: none;
+}
+
+.rent-edit input {
+    width: 100%;
+    color: white;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: grey;
+    background: none;
+}
+
+.rent-edit textarea {
+    width: 100%;
+    min-height: 100px;
+    color: white;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: grey;
+    background: none;
+}
+
+.button {
+    text-transform: none;
+}
+
+.action-sheet-group .button {
+    box-shadow: none;
+    border-style: solid;
+}
+
+.roomie-card {
+    border-radius: 0px;
+    border-left: 2px solid #62D7C7;
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+}
+
+.roomie-female.roomie-card {
+    border-left: 2px solid #FF2D62;
+}
+
+.roomie-card div {
+    color: white !important;
+}
+
+.roomie-card .roomie-avatar {
+    width: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.roomie-card .item-body {
+    min-height: 30px;
+    padding: 15px;
+}
+
+.roomie-profile .avatar-back {
+    width: 100%;
+    height: 40%;
+    overflow: hidden;
+}
+
+.roomie-profile .avatar-back-img {
+    width: 110%;
+    height: 40%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-bottom: 5px solid rgba(0, 0, 0, 0.6);
+    margin: 0 -10px;
+}
+
+.roomie-profile .avatar-back-img img {
+    width: 100%;
+    -webkit-filter: blur(10px) grayscale(40%);
+    filter: blur(10px) grayscale(40%);
+}
+
+.roomie-profile .avatar-profile {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.roomie-profile .avatar-profile img {
+    width: 50%;
+    border-radius: 50%;
+    /*border: 5px solid rgba(0,0,0,0.6);*/
+    
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 8px black;
+}
+
+.profile-infor {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    margin: 5px;
+    padding: 0px;
+}
+
+.profile-infor-title {
+    min-height: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #62D7C7;
+    padding: 0 15px;
+}
+
+.profile-infor-content {
+    min-height: 50px;
+}
+
+.profile-name {
+    font-size: 16px;
+    padding: 9px;
+    position: absolute;
+}
+
+.profile-rent {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    margin: 5px;
+    padding: 0px;
+}
+
+.profile-rent-title {
+    min-height: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #FCB464;
+    padding: 0 15px;
+}
+
+.profile-rent-content {
+    min-height: 50px;
+    padding: 5px;
+}
+
+.profile-habit {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    margin: 5px;
+    padding: 0px;
+}
+
+.profile-habit-title {
+    min-height: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #FF3265;
+    padding: 0 15px;
+}
+
+.profile-habit-content {
+    min-height: 50px;
+    padding: 5px;
+}
+
+.list-login .list {
+    transition: all .4s;
+    transform: translate(-100%);
+}
+
+.list-login.active .list {
+    transform: translate(0%);
+}
+
+.list-register .list {
+    transition: all .4s;
+    transform: translate(100%);
+    position: absolute;
+    width: 100%;
+    /* top: 0; */
+    /*    margin-top: -80%;*/
+}
+
+.login-form {
+    padding: 0px;
+    width: 200%;
+    transition: all 0.4s;
+}
+
+.show-register {
+    transform: translate(-50%);
+}
+
+.list-register.active .list {
+    transform: translate(0%);
+}
+
+[nav-view="cached"],
+[nav-bar="cached"] {
+    display: none !important;
+}
+
+.placeholder {
+    font-style: italic;
+}
+
+.market-image-preview img {
+    width: 36px;
+    height: 36px;
+    margin: 2px;
+}
+
+.market-image-preview {
+    float: right;
+    max-width: 65%;
+    /*    display: flex;*/
+    
+    white-space: normal;
+}
+
+.market-image-preview i {
+    font-size: 36px;
+    line-height: 36px;
+    margin: 2px;
+    color: #A29EFF;
+    float: right;
+}
+
+.market-title img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.market-price {
+    color: #D8D8D8;
+    float: right;
+    line-height: 24px;
+}
+
+.market-image img {
+    width: 100%;
+}
+
+.market-name {
+    text-align: center;
+    color: #D8D8D8;
+}
+
+.border-color-0 {
+    border-left-color: #62D7C8;
+}
+
+.border-color-1 {
+    border-left-color: #FBB365;
+}
+
+.border-color-2 {
+    border-left-color: #FF3366;
+}
+
+.market-view .slider-slides {
+    /*    width: 100%;*/
+}
+
+.market-item-image img {
+    width: 100%;
+}
+
+.item-avatar {
+    padding-left: 80px;
+}
+
+.item-avatar h2 {
+    color: white;
+}
+
+.item.text-center {
+    text-align: center;
+}
+
+.my-item-card {
+    border-radius: 0px;
+    border-left: 2px solid #62D7C7;
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+    height: 100px;
+    padding-left: 100px;
+}
+
+.roomie-female.roomie-card {
+    border-left: 2px solid #FF2D62;
+}
+
+.my-item-card div {
+    color: white !important;
+}
+
+.my-item-card .my-item-image {
+    width: 100px;
+    height: 100px;
+    /*    border-radius: 50%;*/
+    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.my-item-card .item-body {
+    min-height: 30px;
+    padding: 15px;
+}
+
+.toggle-sold div {
+    text-align: right;
+}
+
+.type-image-panel {
+    padding: 0px;
+    overflow: hidden;
+}
+
+.type-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.type-infor-panel {
+    padding: 0px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1)0%, rgba(255, 255, 255, 0.05) 50%, rgba(0, 0, 0, 0.3) 100%);
+    overflow: hidden;
+}
+
+.type-title {
+    color: white;
+    display: block;
+    margin-top: 22%;
+    font-size: 22px;
+}
+
+.type-item {
+    width: 100%;
+    height: 50vw;
+    overflow: hidden;
+    padding: 20px;
+    margin-bottom: -10px;
+    margin-top: -20px;
+}
+
+.type-amount {
+    font-size: 14px;
+    color: white;
+    height: 25px;
+    width: 25px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    display: block;
+    margin: 10px auto;
+    line-height: 25px;
+}
+
+.tip-list-left,
+.tip-list-right {
+    line-height: 40px;
+    height: 40px;
+    width: 100%;
+    display: inline-block;
+}
+
+.tip-list-title {
+    display: block;
+    font-size: 20px;
+}
+
+.tip-list-amount {
+    color: #939393;
+    font-size: 12px;
+}
+
+.tip-list a {
+    padding-left: 30px;
+}
+
+.tip-list .tip-img {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    margin-top: -5px;
+    left: 5px;
+    box-shadow: 0px 0px 1px black;
+}
+
+.tip-list img {
+    max-height: 40px;
+    max-width: 40px;
+    min-height: 30px;
+    min-width: 30px;
+}
+
+.tip-view img {
+    width: 100%;
+}
+
+.tip-text {
+    color: white;
+    white-space: initial;
+    text-align: justify;
+    background: rgba(2, 2, 2, 0.45);
+}
+
+.list .item.item-accordion {
+    /*    line-height: 38px;*/
+    
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 0px;
+    transition: all 0.3s;
+}
+
+.list .item.item-accordion.ng-hide {
+    /*    line-height: 0px;*/
+}
+
+.tip-hide {
+    height: 0px;
+}
+
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+    display: block !important;
+}
+
+.feature-image {
+    position: absolute;
+    z-index: -1;
+}
+
+.feature-image img {
+    width: 100%;
+}
+
+.tip-body {
+    padding: 10px;
+}
+
+.tip-body .content-block-title {
+    /*    margin: 0px !important;*/
+    
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    margin-top: 100px !important;
+    color: white;
+    border: 1px solid black;
+}
+
+.tip-view-title {
+    color: white;
+    border-bottom: 1px solid black;
+    background: rgba(0, 0, 0, 0.6);
+    margin: 0px;
+}
+
+.tip-view-title.activated {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.tip-view-title::after {
+    content: "\f125";
+    font-family: "Ionicons";
+    position: absolute;
+    right: 15px;
+    color: #A7A6A7;
+    transition: all 0.2s;
+}
+
+.tip-view-title.open::after {
+    -ms-transform: rotate(90deg);
+    /* IE 9 */
+    
+    -webkit-transform: rotate(90deg);
+    /* Chrome, Safari, Opera */
+    
+    transform: rotate(90deg);
+}
+
+.tip-view-title.close::after {
+    content: "\f124";
+    font-family: "Ionicons";
+    position: absolute;
+    right: 0;
+    color: #A7A6A7;
+}
+
+[nav-bar="leaving"] .bar,
+[nav-bar="entering"] .bar,
+bar-header {
+    background: transparent !important;
+}
+
+.nav-bar-title,
+.bar-header .title {
+    color: #9891FF !important;
+}
+
+.bar-header .button {
+    color: #8D8D8E !important;
+}
+
+.chat-content {
+    color: white !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    display: inline-block;
+    white-space: initial !important;
+}
+
+.chat-item-in {
+    padding-left: 60px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.chat-item-in .chat-avatar {
+    height: 36px;
+    width: 36px;
+    position: absolute;
+    left: 15px;
+}
+
+.chat-item-out {
+    padding-right: 60px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.chat-item-out .chat-avatar {
+    height: 36px;
+    width: 36px;
+    position: absolute;
+    right: 15px;
+}
+
+.chat-item-out .chat-name {
+    text-align: right;
+}
+
+.chat-item-out .chat-content {
+    text-align: right;
+    background: RGBA(150, 147, 255, 0.3);
+    float: right;
+}
+
+.chat-name {
+    font-size: 11px;
+}
+
+.chat-content {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.chat-message-list {
+    padding-bottom: 100px;
+    transition: all 0.3s;
+}
+
+.message-input {
+    transition: all 0.3s;
+}
+
+.school-list {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.school-list .item {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    min-height: 30px;
+    padding: 8px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll {
+    height: 100%;
+}
+
+.school-infor {
+    position: absolute;
+    height: 100px;
+    bottom: 0px;
+    width: 100%;
+        background: rgba(0,0,0,0.2);
+    padding: 20px;
+    transition: height 0.3s;
+}
+
+.apt-label {
+    position: absolute;
+    padding: 5px;
+    background: black;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.apt-label.selected{
+    padding: 8px;
+    background: blue;
+        margin-left: -3px;
+    margin-top: -3px;
+}
+
+.center-label {
+    position: absolute;
+    padding: 5px;
+    padding-top: 10px;
+    background: #0980D9;
+    border-radius: 50%;
+    transition: all 0.3s;
+    width: 46px;
+    height:46px;
+    left:45%;
+    top:200px;
+}
+
+.show-apt {
+    padding-bottom: 200px !important;    
+}
+.show-apt .apt-infor{
+    height: 200px !important;   
+}
+
+.apt-infor label{
+    font-size: 17px;
+    width: 100%;
+    padding: 5px 10px;
+    display: block;
+}

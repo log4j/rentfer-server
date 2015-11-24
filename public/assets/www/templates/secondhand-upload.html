@@ -1,0 +1,27 @@
+<ion-view view-title="Secondhand" class='view-screen'>
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="uploadItem()">
+            <i class="icon ion-plus-round"></i>
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content class="no-padding">
+
+
+        <div class="row" ng-repeat="i in [] | range:(items.length+1)/2">
+            <div class="col col-50 second-panel" ng-init="item=items[i*2]">
+                <div class="second-item">
+                    H:{{item.name}}
+                </div>
+
+            </div>
+            <div class="col col-50 second-panel" ng-init="item=items[i*2]" ng-if="i*2+1<items.length">
+                <div class="second-item">
+                    H:{{item.name}}
+                </div>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

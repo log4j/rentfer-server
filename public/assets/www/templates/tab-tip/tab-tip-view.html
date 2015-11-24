@@ -1,0 +1,39 @@
+<ion-view view-title="{{tip.title}}" class='view-screen'>
+    <ion-nav-title>
+        {{tip.title}}
+    </ion-nav-title>
+    <ion-content class="tip-view" style="">
+
+        <div class="feature-image">
+            <img ng-if="tip" lazy-image="{{tip.image}}" lazy-image-type="tip"/>
+            <div class="tip-title" style="display:none">{{tip.title}}</div>
+        </div>
+
+
+        <div class="tip-body">
+            <div class="content-block-title" style="white-space: inherit;line-height: inherit; margin: 2px;">
+                <div ng-repeat="title in tip.sectionTitleParas">
+                    <div class="tip-text" ng-if="!title.isImage" ng-bind-html="title.content"></div>
+                    <div class="tip-image" ng-if="title.isImage">
+                        <img lazy-image="{{title.content}}" lazy-image-type="tip" />
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <ion-list ng-repeat="section in tip.sections">
+            <ion-item ng-click="toggleGroup(section)" class="tip-view-title" ng-class="{'open':section.show}">
+                {{section.title}}
+            </ion-item>
+            <ion-item ng-repeat="para in section.paras" class="item-accordion" ng-class="{'tip-hide':!section.show}">
+                <div class="tip-text" ng-if="!para.isImage" ng-bind-html="para.content"></div>
+                <div class="tip-image" ng-if="para.isImage">
+                    <img lazy-image="{{para.content}}" lazy-image-type="tip" />
+                </div>
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

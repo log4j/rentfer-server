@@ -1,0 +1,43 @@
+<ion-view view-title="" class='view-screen' hide-back-button="false">
+
+    <ion-nav-title>
+        {{item.title}}
+    </ion-nav-title>
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+    <ion-content class="padding  market-view">
+
+        <ion-list class="list-menu">
+            <ion-item class="item item-avatar">
+                <img lazy-image="{{item.user.avatar}}" lazy-image-type="avatar" ng-if="item.user">
+                <h2>{{item.user.lastname}}</h2>
+                <p>{{item.update_at | date:'MM/dd/yyyy HH:mm'}}</p>
+            </ion-item>
+            <ion-item>
+
+                <ion-slide-box>
+                    <ion-slide ng-repeat="image in item.images">
+                        <div class="market-item-image">
+                            <img lazy-image="{{image}}" lazy-image-type="market">
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+
+            </ion-item>
+
+            <ion-item class="text-center">${{item.price | number: 2}}</ion-item>
+            <ion-item class="text-center">{{item.title}}</ion-item>
+            <ion-item class="text-center"><i class="ion-location"></i>{{item.location}}</ion-item>
+            <ion-item>{{item.description}}</ion-item>
+            <ion-item>
+                <button class="button button-block button-rentfer" ng-click='contact()'>
+                    Contact
+                </button>
+            </ion-item>
+
+        </ion-list>
+
+
+
+    </ion-content>
+</ion-view>

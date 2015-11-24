@@ -1,0 +1,67 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{title}}" class='view-screen'  hide-back-button="true">
+
+    <ion-nav-buttons side="left">
+        <button class="button" ng-click="cancel()"><i class="ion-chevron-left"></i>{{showDetail?'To list':''}}
+        </button>
+    </ion-nav-buttons>
+    
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="showFilter()">Filter
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content class="chat-message-list" ng-class="{'show-apt':showDetail}" scroll="false">
+        <div id="map" data-tap-disabled="true"></div>
+        
+        <label class="apt-label" ng-hide='showDetail' ng-class="{'selected':apt.selected}" ng-click="selectApt(apt)" ng-repeat="apt in apts" style="top:{{apt.top}}px;left:{{apt.left}}px;"><i class="fa fa-home fa-2x"></i></label>
+        
+        <label class="apt-label" ng-show='showDetail' ng-class="{'selected':apt.selected}" ng-click="selectMall(apt)" ng-repeat="apt in malls" style="top:{{apt.top}}px;left:{{apt.left}}px;">
+            <i class="fa fa-2x" ng-class="{'fa-shopping-cart':apt.type=='store','fa-subway':apt.type=='metro','fa-envelope-square':apt.type=='post'}"></i>
+        </label>
+        
+        
+        <label class="center-label" ng-hide='showDetail'><i class='fa fa-graduation-cap fa-2x'></i></label>
+        <label class="center-label" ng-show='showDetail'><i class='fa fa-home fa-2x'></i></label>
+        
+        <div class="school-infor" ng-hide="selectedApt">
+            <i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;George Washington University
+        </div>
+        <div class="apt-infor" ng-if="selectedApt" ng-hide="selectedMall">
+            <label >
+            <i class="fa fa-home"></i>&nbsp;&nbsp;{{selectedApt.name}}&nbsp;&nbsp;<i class="fa fa-star" ng-repeat="a in range(selectedApt.rating) track by $index"></i><i class="fa fa-star-o" ng-repeat="a in range(5-selectedApt.rating) track by $index"></i>
+                </label>
+            <label ng-show='showDetail'>
+                <i class="fa fa-phone">&nbsp;&nbsp;</i>{{selectedApt.phone}}
+            </label>
+            <label ng-show='showDetail'>
+                <i class="fa fa-location-arrow">&nbsp;&nbsp;</i>{{selectedApt.address}}
+            </label>
+            <div style="width:100%;padding:0 10px" ng-hide='showDetail'>
+                <button class="button button-block button-rentfer button-small" ng-click='viewAptDetail()'>
+                    View Detail
+                </button>
+                </div>
+        </div>
+        <div class="apt-infor" ng-if="selectedMall" >
+            <label >
+            <i class="fa fa-home"></i>&nbsp;&nbsp;{{selectedMall.name}}&nbsp;&nbsp;<i class="fa fa-star" ng-repeat="a in range(selectedApt.rating) track by $index"></i><i class="fa fa-star-o" ng-repeat="a in range(5-selectedApt.rating) track by $index"></i>
+                </label>
+            <label >
+                <i class="fa fa-phone">&nbsp;&nbsp;</i>{{selectedMall.phone}}
+            </label>
+            <label >
+                <i class="fa fa-location-arrow">&nbsp;&nbsp;</i>{{selectedMall.address}}
+            </label>
+            <label >
+                <i class="fa fa-map-marker">&nbsp;&nbsp;</i>{{selectedMall.distance}}
+            </label>
+        </div>
+    </ion-content>
+<!--    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>-->
+</ion-view>

@@ -1,0 +1,67 @@
+<ion-view view-title="Dashboard" hide-nav-bar="true" class="view-login">
+    <ion-nav-title>
+        <img src="logo.svg">hahah
+    </ion-nav-title>
+    <ion-content class="padding" scroll="false" padding="false">
+        <div class="row no-padding panel-login-buttons">
+            <div class="col no-padding">
+                <button class="button button-full" ng-click="type='signin'" ng-class="{'login-button-selected':type=='signin'}">
+                    Sign In
+                </button>
+            </div>
+            <div class="col no-padding">
+                <button class="button button-full" ng-click="type='signup'" ng-class="{'login-button-selected':type=='signup'}">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+        <div class="row login-form" ng-class="{'show-register':type=='signup'}">
+            <div class="col col-50">
+                <div class="list">
+                    <div class="item">
+                        <label class="item item-input">
+                            <i class="icon ion-at placeholder-icon"></i>
+                            <input type="text" placeholder="Email" ng-model='loginData.email'>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label class="item item-input">
+                            <i class="icon ion-log-out placeholder-icon"></i>
+                            <input type="password" placeholder="Password" ng-model='loginData.password'>
+                        </label>
+                    </div>
+
+                    <div class="item">
+                        <button class="button button-block button-rentfer" ng-click='loginSubmit()'>
+                            Continue
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-50 ">
+                <div class="list">
+                    <div class="item">
+                        <label class="item item-input">
+                            <i class="icon ion-at placeholder-icon"></i>
+                            <input type="text" placeholder="Email" ng-model='signupData.email'>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label class="item item-input">
+                            <i class="icon ion-log-out placeholder-icon"></i>
+                            <input type="password" placeholder="Password" ng-model='signupData.password'>
+                        </label>
+                    </div>
+
+                    <div class="item">
+                        <button class="button button-block button-rentfer" ng-click='signupSubmit()'>
+                            Create
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

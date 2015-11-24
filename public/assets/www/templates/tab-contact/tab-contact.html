@@ -1,0 +1,25 @@
+<ion-view view-title="Chats" class='view-screen' hide-back-button="true">
+    <ion-content style="background-image: url(./img/search_back.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center bottom;">
+        <div class="list list-inset" style="    border-radius: 5px;
+    background: rgba(0,0,0,0.05);
+    padding-left: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+                                                padding-bottom: 0px;
+    margin-bottom: 0px;">
+            <label class="item item-input" style="    min-height: 30px;
+    padding: 0px;">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Locate your university or favorite area" ng-model="keyword" ng-change="search(keyword)" style="padding-right:10px">
+            </label>
+        </div>
+        <ul class="list school-list">
+            <li class="item" ng-repeat="item in keywords" ng-click="showDetail()">
+                <i class="fa" 
+                   ng-class="{'fa-graduation-cap':item.type=='university','fa-shopping-bag':item.type=='living-area','fa-subway':item.type=='metro'}"></i>&nbsp;&nbsp;{{item.label}}
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>

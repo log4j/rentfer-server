@@ -1,0 +1,35 @@
+<ion-view view-title="Tips" class='view-screen'>
+    <ion-nav-buttons side=" left ">
+        <!--
+        <button class="button " ng-click="viewMyItems() ">
+            <i class="icon ion-ios-toggle "></i> View Urs
+        </button>
+-->
+    </ion-nav-buttons>
+    <ion-nav-buttons side=" right ">
+        <!--
+        <button class="button " ng-click="uploadItem() ">
+    <i class="icon ion-plus-round "></i>
+</button>
+-->
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list style="padding:20px" class="animate-ripple">
+            <ion-item ng-repeat="type in types" class="no-padding ">
+                <div class="row type-item" ng-click="showTipList(type)">
+                    <div class="col col-md-6 type-infor-panel" ng-if="$index%2==0">
+                        <label class="type-title">{{type.label}}</label>
+                        <label class="type-amount">{{type.total}}</label>
+                    </div>
+                    <div class="col col-md-6 type-image-panel">
+                        <img class="type-image" ng-src="{{type.image}}">
+                    </div>
+                    <div class="col col-md-6 type-infor-panel" ng-if="$index%2!=0">
+                        <label class="type-title">{{type.label}}</label>
+                        <label class="type-amount">{{type.total}}</label>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

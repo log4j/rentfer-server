@@ -1,0 +1,33 @@
+<ion-view view-title="Market" class='view-screen' hide-back-button="false">
+
+    <ion-nav-buttons side=" right ">
+        <button class="button " ng-click="uploadItem() ">
+            <i class="icon ion-plus-round "></i>
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content class="no-padding ">
+
+        <ion-refresher pulling-text="Pull to refresh... " on-refresh="doMarketRefresh() ">
+        </ion-refresher>
+
+        <div class="list card my-item-card" ng-repeat="item in items">
+            <img class="my-item-image" ng-src="{{getMarketImage(item.images[0])}}" ng-click='showOptions(item)'>
+            <div class="item item-title" ng-click='showOptions(item)'>
+                {{item.title}}(${{item.price | number:2}})
+                <label class="market-price ">{{item.update_at | date:'MM/dd HH:mm'}}</label>
+            </div>
+            <ion-toggle ng-model="item.sold" class="toggle-sold" toggle-class="toggle-royal" ng-click="updateSoldValue(item)">Sold</ion-toggle>
+            <div class="item item-body">
+                <div>
+                    Rent Start: {{roomie.rent_start | date: 'dd/MM/yyyy'}} <b>Duration: {{roomie.rent_duration}}</b>
+                </div>
+            </div>
+        </div>
+
+
+        <ion-infinite-scroll ng-if="hasMoreData " on-infinite="doLoadMoreMarket() " distance="1% ">
+        </ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>

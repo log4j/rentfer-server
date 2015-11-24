@@ -1,0 +1,40 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Detail" class='view-screen'  hide-back-button="true">
+
+    <ion-nav-buttons side="left">
+        <button class="button" ng-click="cancel()"><i class="ion-chevron-left"></i>
+        </button>
+    </ion-nav-buttons>
+    
+
+    <ion-content class="chat-message-list" scroll="false">
+        <div id="map-apt" data-tap-disabled="true"></div>
+        
+        <label class="apt-label" ng-class="{'selected':apt.selected}" ng-click="selectApt(apt)" ng-repeat="apt in apts" style="top:{{apt.top}}px;left:{{apt.left}}px;"><i class="fa fa-home fa-2x"></i></label>
+        
+        <label class="center-label"><i class='fa fa-graduation-cap fa-2x'></i></label>
+        
+        <div class="school-infor" ng-hide="selectedApt">
+            <i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;George Washington University
+        </div>
+        <div class="apt-infor" ng-if="selectedApt">
+            <label style="font-size: 17px;
+    width: 100%;
+    padding: 5px 10px;
+    display: block;">
+            <i class="fa fa-home"></i>&nbsp;&nbsp;{{selectedApt.name}}&nbsp;&nbsp;<i class="fa fa-star" ng-repeat="a in range(selectedApt.rating) track by $index"></i><i class="fa fa-star-o" ng-repeat="a in range(5-selectedApt.rating) track by $index"></i>
+                </label>
+            <div style="width:100%;padding:0 10px">
+                <button class="button button-block button-rentfer button-small" ng-click='contact()'>
+                    View Detail
+                </button>
+                </div>
+        </div>
+    </ion-content>
+<!--    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>-->
+</ion-view>

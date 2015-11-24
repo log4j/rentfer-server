@@ -1,0 +1,23 @@
+<ion-view view-title="Roomie" class='view-screen'>
+
+
+    <ion-content class="padding">
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRoomieRefresh()">
+        </ion-refresher>
+        <div class="list card roomie-card" ng-class="{'roomie-female':roomie.gender=='female'}" ng-repeat='roomie in roomies' ng-click='showProfile(roomie)'>
+            <div class="item item-title">
+                {{roomie.firstname}}
+                <img class="roomie-avatar"
+                     lazy-image="{{roomie.avatar}}" lazy-image-type="avatar"
+                     >
+            </div>
+            <div class="item item-body">
+                <div>
+                    Rent Start: {{roomie.rent_start | date: 'dd/MM/yyyy'}} <b>
+                    Duration: {{roomie.rent_duration}}</b>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

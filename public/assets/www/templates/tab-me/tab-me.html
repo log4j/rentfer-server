@@ -1,0 +1,34 @@
+<ion-view view-title="Me" class='view-screen'>
+    <ion-content class="padding">
+        <div class="tab-me">
+            <div class="avatar" ng-click="showAvatarSheet()">
+                <img class="avatar" src='{{profile.avatar_url}}'>
+            </div>
+
+        </div>
+
+        <ion-list class="list-menu">
+            <ion-item>
+                <a href="#tab/me/general">General</a>
+            </ion-item>
+            <ion-item>
+                <a href="#tab/me/personal">Personal Information
+                </a>
+            </ion-item>
+            <ion-item>
+                <a href="#tab/me/renting">Renting Interests
+                </a>
+            </ion-item>
+            <ion-item>
+                <a href="#" >Cache
+                    <label>{{cacheSize}}</label>
+                </a>
+            </ion-item>
+            <ion-item>
+                <a href="#" ng-click="logout()">Logout
+                </a>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>
