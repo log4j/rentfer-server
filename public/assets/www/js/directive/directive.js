@@ -37,6 +37,20 @@ rentferApp.directive('rentEdit', ["$document", "$state", "editorService", "$filt
         link: function (scope, element, attr) {
 
             var ctrl = scope[attr.rentEdit];
+            
+            if(ctrl.type=='multiselect'){
+                ctrl.values = {};
+                var opts = ctrl.value.split(',');
+                for(var index in ctrl.options){
+                    ctrl.values[ctrl.options[index].value] = {label:ctrl.options[index].label,value:false};
+                }
+                for(var i=0;i<opts.length;i++){
+                    if(ctrl.values[opts[i]]){
+                        ctrl.values[opts[i]].value = true;   
+                    }
+                }
+            }
+            
             var showDisplay = function (value) {
                 if (ctrl.type == 'select') {
                     ctrl.displayValue = '';
@@ -50,6 +64,22 @@ rentferApp.directive('rentEdit', ["$document", "$state", "editorService", "$filt
                         ctrl.value = parseFloat(ctrl.value.toFixed(2));
 
                     ctrl.displayValue = '$' + $filter('number')(ctrl.value, 2);
+                } else if(ctrl.type == 'multiselect'){
+                    ctrl.displayValue = '';
+                    ctrl.value = '';
+                    for (var key in ctrl.values)
+                        if (ctrl.values[key].value) {
+                            if(ctrl.displayValue!='')
+                                ctrl.displayValue+=",";
+                            ctrl.displayValue += ctrl.values[key].label;
+                            
+                            if(ctrl.value!='')
+                                ctrl.value+=",";
+                            ctrl.value += key;
+                            
+                            
+                            continue;
+                        }
                 }
 
                 //console.log('show display', value);
@@ -61,7 +91,7 @@ rentferApp.directive('rentEdit', ["$document", "$state", "editorService", "$filt
                     $(element).find('label').text(ctrl.displayValue ? ctrl.displayValue : ctrl.value);
                 }
 
-                //console.log(ctrl);
+                console.log(ctrl);
 
                 if (ctrl.value === null || ctrl.value === undefined || ctrl.value === '') {
                     console.log(ctrl);

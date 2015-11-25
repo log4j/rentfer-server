@@ -261,3 +261,100 @@ rentferApp.controller('ProfileViewController', function ($scope, $stateParams, u
         });
     $scope.labels = labelService;
 });
+
+
+
+rentferApp.controller('FilterController', function ($scope, userService,  $ionicHistory) {
+
+
+
+    $scope.rentTypeEditor = {
+        type: 'multiselect',
+        value: "2B1B,1B1B",
+        url:'tab.edit-tab-dash',
+        options: [{
+                label: '3B2B',
+                value: '3B2B'
+            },
+            {
+                label: '2B1B',
+                value: '2B1B'
+            },
+            {
+                label: '1B1B',
+                value: '1B1B'
+            }],
+        callback: function (value) {
+            //$scope.profile.first_name = value;
+            //userService.updateUserAttribute('firstname', value);
+        }
+    };
+    
+    $scope.cancel = function () {
+                $ionicHistory.goBack();
+        
+    };
+    
+
+    $scope.lastNameEditor = {
+        type: 'text',
+        value: "",
+        options: [{
+                label: '3B2B',
+                value: '3B2B'
+            },
+            {
+                label: '2B2B',
+                value: '2B1B'
+            },
+            {
+                label: '1B1B',
+                value: '1B1B'
+            }],
+        callback: function (value) {
+            //$scope.profile.last_name = value;
+            //userService.updateUserAttribute('lastname', value);
+        }
+    };
+
+    $scope.genderEditor = {
+        type: 'select',
+        options: [{
+                label: 'Male',
+                value: 'male'
+            },
+            {
+                label: 'Female',
+                value: 'female'
+            }],
+        value: 'male',
+        callback: function (value) {
+            //$scope.profile.gender = value;
+            //userService.updateUserAttribute('gender', value);
+        }
+    };
+
+
+    $scope.distanceRange = {
+        min : 0,
+        max : 20,
+        minSelected : 0,
+        maxSelected : 5
+    }
+
+    $scope.priceRange = {
+        min : 100,
+        max : 6000,
+        minSelected : 100,
+        maxSelected : 1000
+    }
+
+    
+    $scope.settings = {
+        enableFriends: true
+    };
+
+
+
+
+});

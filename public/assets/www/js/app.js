@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var rentferApp = angular.module('starter', ['ionic', 'ionic-material', 'ngIOS9UIWebViewPatch', 'ionic-datepicker', 'starter.controllers', 'starter.services', 'LocalStorageModule','ngCordova']);
+var rentferApp = angular.module('starter', ['ionic', 'ionic-material', 'ngIOS9UIWebViewPatch', 'ionic-datepicker', 'starter.controllers', 'starter.services', 'LocalStorageModule','ngCordova','tenzen-ionic-rangeSlider']);
 var host = 'http://rentfer.com:3000';
 //var host = 'http://localhost:3000';
 //var host = 'http://192.168.99.112:3000';
@@ -112,6 +112,16 @@ rentferApp.config(function ($stateProvider, $urlRouterProvider) {
             }
         }
     });
+    
+    $stateProvider.state('tab.filter', {
+        url: '/filter',
+        views: {
+            'tab-dash': {
+                templateUrl: 'templates/tab-contact/tab-filter.html',
+                controller: 'FilterController'
+            }
+        }
+    });
 
     $stateProvider.state('tab.roomie', {
         url: '/roomie',
@@ -181,6 +191,16 @@ rentferApp.config(function ($stateProvider, $urlRouterProvider) {
         url: '/edit-tab-me/:type',
         views: {
             'tab-me': {
+                templateUrl: 'templates/tab-edit.html',
+                controller: 'EditCtrl'
+            }
+        }
+    });
+    
+    $stateProvider.state('tab.edit-tab-dash', {
+        url: '/edit-tab-dash/:type',
+        views: {
+            'tab-dash': {
                 templateUrl: 'templates/tab-edit.html',
                 controller: 'EditCtrl'
             }

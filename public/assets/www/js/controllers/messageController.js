@@ -91,7 +91,8 @@ rentferApp.controller('ContactController', function ($scope, $state, userService
 });
 
 
-rentferApp.controller('MessageController', function ($scope, $rootScope, $state, $ionicHistory, $timeout, $stateParams, $ionicScrollDelegate, userService, keyboardService, messageService, $compile, $ionicLoading) {
+rentferApp.controller('MessageController', function ($scope, $rootScope, $state, $ionicHistory, 
+                        $ionicModal,$timeout, $stateParams, $ionicScrollDelegate, userService, keyboardService, messageService, $compile, $ionicLoading) {
 
 
     $scope.cancel = function () {
@@ -142,13 +143,13 @@ rentferApp.controller('MessageController', function ($scope, $rootScope, $state,
                         $timeout(function(){
                             $scope.randomMall();
                             $ionicLoading.hide();
-                        },300);
+                        },1000);
                     }else{
                         $ionicLoading.show();
                         $timeout(function(){
                             $scope.randomApartment();
                             $ionicLoading.hide();
-                        },300);
+                        },1000);
                     }
                     
                 });
@@ -445,9 +446,39 @@ rentferApp.controller('MessageController', function ($scope, $rootScope, $state,
             $scope.randomMall();
             $scope.title='Around '+$scope.selectedApt.name;
             $ionicLoading.hide();
-        },1000);
+        },300);
         //$state.go('tab.apt');   
     }
+
+    
+    
+    
+    $ionicModal.fromTemplateUrl('templates/modal/modal-required-infor.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+      }).then(function(modal) {
+        $scope.modal = modal;
+      });
+    
+    
+      $scope.openModal = function() {
+        $scope.modal.show();
+      };
+      $scope.closeModal = function() {
+        $scope.modal.hide();
+      };
+      //Cleanup the modal when we're done with it!
+      $scope.$on('$destroy', function() {
+        $scope.modal.remove();
+      });
+      // Execute action on hide modal
+      $scope.$on('modal.hidden', function() {
+        // Execute action
+      });
+      // Execute action on remove modal
+      $scope.$on('modal.removed', function() {
+        // Execute action
+      });
 
 });
 

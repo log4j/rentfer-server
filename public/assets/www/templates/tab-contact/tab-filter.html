@@ -1,0 +1,53 @@
+<ion-view view-title="Filter" class='view-screen' hide-tab-bar>
+    
+    <ion-nav-buttons side="right">
+            <button class="button" ng-click="cancel()">Submit</button>
+        </ion-nav-buttons>
+    <ion-content class="padding">
+            
+        <ion-list class="list-menu">
+            <ion-item>
+                <a rent-edit='rentTypeEditor'>Rent Type
+                <label>{{rentTypeEditor.value}}</label>
+                </a>
+            </ion-item>
+            
+            <div class="item item-divider">
+            Distance
+          </div>
+            <ion-item>
+                <div class=" range ngrs-range range-royal">
+                    <i class="icon ngrs-range-value ngrs-range-min-value">{{distanceRange.minSelected}} miles</i>
+                    <div tz-range-slider min="distanceRange.min" 
+                         max="distanceRange.max" 
+                         decimal-places="1"
+                         model-min="distanceRange.minSelected" model-max="distanceRange.maxSelected"></div>
+                    <i class="icon ngrs-range-value ngrs-range-max-value">{{distanceRange.maxSelected}} miles</i>
+                </div>
+            </ion-item>
+            <div class="item item-divider">
+            Price Range
+          </div>
+            <ion-item>
+                <div class=" range ngrs-range range-royal">
+                    <i class="icon ngrs-range-value ngrs-range-min-value">$ {{priceRange.minSelected}}</i>
+                    <div tz-range-slider min="priceRange.min" max="priceRange.max" model-min="priceRange.minSelected" model-max="priceRange.maxSelected"></div>
+                    <i class="icon ngrs-range-value ngrs-range-max-value">$ {{priceRange.maxSelected}}</i>
+                </div>
+            </ion-item>
+            
+            
+            
+            <ion-toggle toggle-class="toggle-royal" ng-value='true'>
+                Pool
+            </ion-toggle>
+            <ion-toggle toggle-class="toggle-royal" ng-value='true'>
+                Pets
+            </ion-toggle>
+            <ion-toggle toggle-class="toggle-royal" ng-value='true'>
+                Barbecure
+            </ion-toggle>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

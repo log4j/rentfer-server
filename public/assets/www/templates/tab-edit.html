@@ -31,9 +31,18 @@
         </div>
 
         <div class="list list-item" ng-if="data.type=='select'">
-
-            <ion-radio-fix ng-model="data.value" ng-value="option.value" ng-repeat="option in data.options">{{option.label}} </ion-radio-fix>
+            <ion-radio-fix ng-model="data.value" ng-value="option.value" ng-repeat="option in data.options">
+                {{option.label}} 
+            </ion-radio-fix>
         </div>
+        
+        <div class="list list-item" ng-if="data.type=='multiselect'" ng-repeat="option in data.options">
+            <ion-checkbox ng-model="data.values[option.value].value">
+                {{option.label}}
+            </ion-checkbox>
+        </div>
+        
+        
 
     </ion-content>
 </ion-view>

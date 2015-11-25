@@ -94,7 +94,7 @@ angular.module('starter.controllers', [])
                             if (userRes.result) {
                                 userService.setUser(userRes.data);
                             }
-                            $state.go('tab.tip');
+                            $state.go('tab.contact');
                         });
 
 
