@@ -8,6 +8,12 @@ rentferApp.factory('userService', function ($http, $timeout, localStorageService
     this.loadUsernameAndPassword = function () {
         this.user.email = localStorageService.get('email');
         this.user.password = localStorageService.get('password');
+        
+        if(!this.user.email){
+            this.user.email='test@test.com';
+            this.user.password='123';
+        }
+        
     };
 
     this.saveUsernameAndPassword = function () {

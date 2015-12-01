@@ -180,9 +180,6 @@ _.extend(app.locals, {
 
 
 
-var test = 'cdv_photo_015.jpg';
-console.log(test,test.substring(test.lastIndexOf('.')));
-
 _.extend(app.locals, require('./common/render_helpers'));
 
 

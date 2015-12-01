@@ -91,7 +91,7 @@ rentferApp.controller('ContactController', function ($scope, $state, userService
 });
 
 
-rentferApp.controller('MessageController', function ($scope, $rootScope, $state, $ionicHistory, 
+rentferApp.controller('MessageController', function ($scope, $rootScope, $state, $ionicHistory, $ionicPopup,
                         $ionicModal,$timeout, $stateParams, $ionicScrollDelegate, userService, keyboardService, messageService, $compile, $ionicLoading) {
 
 
@@ -480,6 +480,21 @@ rentferApp.controller('MessageController', function ($scope, $rootScope, $state,
         // Execute action
       });
 
+    
+    
+    $scope.addToFavor = function(){
+        $ionicLoading.show();
+        $timeout(function(){
+            $ionicLoading.hide();
+            var alertPopup = $ionicPopup.alert({
+                 title: 'Rent-App!',
+                 template: 'Apartment added into Favorite!'
+               });
+               alertPopup.then(function(res) {
+                 //console.log('Thank you for not eating my delicious ice cream cone');
+               });
+        },1000);
+    };
 });
 
 
